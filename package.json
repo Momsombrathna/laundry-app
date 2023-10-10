@@ -15,14 +15,14 @@
     "@mui/icons-material": "^5.14.12",
     "@mui/material": "^5.14.12",
     "@mui/styled-engine-sc": "^5.14.12",
-    "@zxing/library": "^0.20.0",
-    "jsbarcode": "^3.11.5",
+    "esbuild": "^0.19.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-pro-sidebar": "^1.1.0-alpha.1",
     "react-router-dom": "^6.16.0",
     "react-webcam": "^7.1.1",
-    "styled-components": "^6.0.8"
+    "styled-components": "^6.0.8",
+    "use-scan-detection": "^0.2.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
