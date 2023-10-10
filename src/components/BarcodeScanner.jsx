@@ -1,37 +1,20 @@
-import React, { useRef, useState } from 'react';
-import Webcam from 'react-webcam';
-import JsBarcode from 'jsbarcode';
+import React, { useState } from 'react';
+import useScanDetection from 'use-scan-detection';
 
-const BarcodeScanner = () => {
-  const webcamRef = useRef(null);
-  const [scannedCode, setScannedCode] = useState('');
+function BarcodeScanner(props) {
+  const [barCodeScan, setBarCodeScan] = useState("No Barcode Scanned");
 
-  const handleBarcodeScanned = (result) => {
-    setScannedCode(result.text);
-  };
-
-  const captureBarcode = () => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    JsBarcode("#barcode-canvas", imageSrc, {
-      format: "CODE128",
-      displayValue: false,
-    });
-    
-
-    const barcodeData = JsBarcode("#barcode-canvas")
-      .toDataURL()
-      .replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
-    handleBarcodeScanned(barcodeData);
-  };
+  useScanDetection({
+    onComplete: setBarCodeScan,
+    minLength: 3,
+  });
 
   return (
     <div>
-      <Webcam audio={false} ref={webcamRef} screenshotFormat="image/png" />
-      <button onClick={captureBarcode}>Scan Barcode</button>
-      <canvas id="barcode-canvas" style={{ display: 'none' }}></canvas>
-      <p>Scanned Code: {scannedCode}</p>
+      <p>barcode: </p>
+      <p>{barCodeScan}</p>
     </div>
   );
-};
+}
 
 export default BarcodeScanner;
