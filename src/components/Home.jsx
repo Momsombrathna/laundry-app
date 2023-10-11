@@ -1,26 +1,87 @@
-import * as React from 'react';
+//import * as React from 'react';
+import {useEffect,useState} from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-
+import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { Link } from 'react-router-dom';
+import { Link } from '@mui/material';
 
+const idb =
+  window.indexedDB ||
+  window.mozIndexedDB ||
+  window.webkitIndexedDB ||
+  window.msIndexedDB ||
+  window.shimIndexedDB;
+
+const createCollectionsIndexedDB = () => {
+  //check for support
+  if (!idb) {
+      console.log("This browser doesn't support IndexedDB");
+      return;
+  }
+
+
+
+  var request = indexedDB.open("laundry", 2);
+  request.onupgradeneeded = () => {
+      //var db = event.target.result;
+      var db = request.result;
+      db.createObjectStore("items",{keyPath:"id", autoIncrement:true});
+      // document.write("Object store Created Successfully...");
+  };
+
+  request.onsuccess = function () {
+    console.log("Database opened successfully");
+  };
+}
+
+
+const drawerWidth = 240;
 
 const Home = () => {
-  const drawerWidth = 240;
+  const [type, setType] = useState("T-Shirt");  
+  const selectDropdownItem = (id, val) => {
+    setType(val);
+  };
 
-  
-  
+  useEffect(()=>{
+    createCollectionsIndexedDB();
+  }, []);
+
+   //Insert Data
+   const handleSubmit = () => {
+    const dbPromise = idb.open("laundry", 2);
+    if(type){
+        dbPromise.onsuccess = () => {
+            const db = dbPromise.result;
+
+            var tx = db.transaction("items", "readwrite");
+            var customerData = tx.objectStore("items");
+            const items = customerData.put({id:2,type});
+            items.onsuccess = () => {
+                tx.oncomplete = function () {
+                    db.close();
+                };
+            }
+            items.onerror = (event) => {
+                console.log(event);
+                alert("Error occur");
+            }
+        }
+    }
+}
+
+
+
 
     return (
       <>
         <Box sx={{ display: 'flex' }}>
-          <CssBaseline style={{ backgroundColor: 'gray'}} />
+          <CssBaseline />
   
           <Drawer
             variant="permanent"
@@ -31,7 +92,7 @@ const Home = () => {
               [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box', backgroundColor: 'gray' },
             }}
           >
-            
+            <Toolbar />
             <Box sx={{ overflow: 'auto' }}>
   
               <List>
@@ -45,47 +106,82 @@ const Home = () => {
   
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
   
-            <Grid container spacing={8}>
+            <Grid container spacing={4}>
               <Grid item xs={4}>
-                <img width="96" onclick="SelectADropdownItem('design-dropdown','T-shirt')"
-                 height="96" src="https://img.icons8.com/fluency/96/polo-shirt.png" alt="polo-shirt"/>
+                  <div className="container">
+                    <img width="96" height="96" src="https://img.icons8.com/fluency/96/polo-shirt.png" alt="polo-shirt"  
+                     onClick={() => selectDropdownItem('design-dropdown', 'T-shirt')} style={{cursor:'pointer'}}/>
+                    <div class="overlay">
+                      <div class="text name">T-shirt</div>
+                    </div>
+                  </div>              
               </Grid>
               <Grid item xs={4}>
-                <img width="96" onclick="SelectADropdownItem('design-dropdown','Shirt')"
-                 height="96" src="https://img.icons8.com/color/96/shirt.png" alt="shirt"/>
+                  <div class="container">
+                    <img width="96" height="96" src="https://img.icons8.com/color/96/shirt.png" alt="shirt"
+                     onClick={() => selectDropdownItem('design-dropdown', 'Shirt')} style={{cursor:'pointer'}}/>
+                     <div class="overlay">
+                      <div class="text name">Shirt</div>
+                    </div>
+                  </div>
               </Grid>
               <Grid item xs={4}>
-                <img width="100" onclick="SelectADropdownItem('design-dropdown','Jeans')"
-                height="100" src="https://img.icons8.com/plasticine/100/jeans.png" alt="jeans"/>
+                  <div class="container">
+                    <img width="100" height="100" src="https://img.icons8.com/plasticine/100/jeans.png" alt="jeans"
+                     onClick={() => selectDropdownItem('design-dropdown', 'Jeans')} style={{cursor:'pointer'}}/> 
+                     <div class="overlay">
+                      <div class="text name">Jeans</div>
+                    </div> 
+                  </div>
               </Grid>
               <Grid item xs={4}>
-                <img width="96" onclick="SelectADropdownItem('design-dropdown','Dress')"
-                 height="96" src="https://img.icons8.com/emoji/96/dress.png" alt="dress"/>
+                <div class="container">
+                  <img width="96" height="96" src="https://img.icons8.com/emoji/96/dress.png" alt="dress"
+                     onClick={() => selectDropdownItem('design-dropdown', 'Dress')} style={{cursor:'pointer'}}/>
+                     <div class="overlay">
+                      <div class="text name">Dress</div>
+                    </div>
+                </div>
               </Grid>
               <Grid item xs={4}>
-                <img width="96" onclick="SelectADropdownItem('design-dropdown','Demin Shorts')"
-                 height="96" src="https://img.icons8.com/color/96/denim-shorts.png" alt="denim-shorts"/>
+                <div class="container">
+                <img width="96" height="96" src="https://img.icons8.com/color/96/denim-shorts.png" alt="denim-shorts"
+                     onClick={() => selectDropdownItem('design-dropdown', 'Demin Shorts')} style={{cursor:'pointer'}}/>
+                     <div class="overlay">
+                      <div class="text name">Denim Shorts</div>
+                    </div>
+                </div>
               </Grid>
               <Grid item xs={4}>
-                <img width="100" onclick="SelectADropdownItem('design-dropdown','Suit')"
-                height="100" src="https://img.icons8.com/plasticine/100/suit.png" alt="suit"/>
+                <div class="container">
+                <img width="100" height="100" src="https://img.icons8.com/plasticine/100/suit.png" alt="suit"
+                     onClick={() => selectDropdownItem('design-dropdown', 'Suit')} style={{cursor:'pointer'}}/>
+                     <div class="overlay">
+                      <div class="text name">Suit</div>
+                    </div>
+                </div>
               </Grid>
             </Grid>
-
   
             <br /><br /><br />
+            <select id="design-dropdown" value={type} onChange={(e) => setType(e.target.value)} style={{display:'none'}}>
+              <option>Select here or click a pattern above.</option>
+              <option value="T-shirt">T-shirt</option>
+              <option value="Shirt">Shirt</option>
+              <option value="Jeans">Jeans</option>
+              <option value="Demin">Demin</option>
+              <option value="Shorts">Shorts</option>
+              <option value="Suit">Suit</option>
+            </select>
   
-            <Link to="/color">
-            <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />} size="large" disableElevation>
+          
+            <Button container spacing={8} variant="contained" size="large" disableElevation onClick={handleSubmit}>
               Next
             </Button>
-            </Link>
   
           </Box>
   
         </Box>
-
-        
   
       </>
     );
