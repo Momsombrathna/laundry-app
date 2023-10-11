@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import useScanDetection from 'use-scan-detection';
+import React, { useState } from "react";
+import useScanDetection from "use-scan-detection";
 
 function BarcodeScanner(props) {
   const [barCodeScan, setBarCodeScan] = useState("No Barcode Scanned");

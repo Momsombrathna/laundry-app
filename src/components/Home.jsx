@@ -1,5 +1,4 @@
-//import * as React from 'react';
-import {useEffect,useState} from 'react';
+import React, {useEffect,useState} from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,70 +9,70 @@ import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
 import { Link } from '@mui/material';
 
-const idb =
-  window.indexedDB ||
-  window.mozIndexedDB ||
-  window.webkitIndexedDB ||
-  window.msIndexedDB ||
-  window.shimIndexedDB;
+  const idb =
+    window.indexedDB ||
+    window.mozIndexedDB ||
+    window.webkitIndexedDB ||
+    window.msIndexedDB ||
+    window.shimIndexedDB;
 
-const createCollectionsIndexedDB = () => {
-  //check for support
-  if (!idb) {
-      console.log("This browser doesn't support IndexedDB");
-      return;
+  const createCollectionsIndexedDB = () => {
+    //check for support
+    if (!idb) {
+        console.log("This browser doesn't support IndexedDB");
+        return;
+    }
+
+
+
+    var request = indexedDB.open("laundry", 2);
+    request.onupgradeneeded = () => {
+        //var db = event.target.result;
+        var db = request.result;
+        db.createObjectStore("items",{keyPath:"id", autoIncrement:true});
+        // document.write("Object store Created Successfully...");
+    };
+
+    request.onsuccess = function () {
+      console.log("Database opened successfully");
+    };
   }
 
 
+  const drawerWidth = 240;
 
-  var request = indexedDB.open("laundry", 2);
-  request.onupgradeneeded = () => {
-      //var db = event.target.result;
-      var db = request.result;
-      db.createObjectStore("items",{keyPath:"id", autoIncrement:true});
-      // document.write("Object store Created Successfully...");
-  };
+  const Home = () => {
+    const [type, setType] = useState(" ");  
+    const selectDropdownItem = (id, val) => {
+      setType(val);
+    };
 
-  request.onsuccess = function () {
-    console.log("Database opened successfully");
-  };
-}
+    useEffect(()=>{
+      createCollectionsIndexedDB();
+    }, []);
 
+    //Insert Data
+    const handleSubmit = () => {
+      const dbPromise = idb.open("laundry", 2);
+      if(type){
+          dbPromise.onsuccess = () => {
+              const db = dbPromise.result;
 
-const drawerWidth = 240;
-
-const Home = () => {
-  const [type, setType] = useState("T-Shirt");  
-  const selectDropdownItem = (id, val) => {
-    setType(val);
-  };
-
-  useEffect(()=>{
-    createCollectionsIndexedDB();
-  }, []);
-
-   //Insert Data
-   const handleSubmit = () => {
-    const dbPromise = idb.open("laundry", 2);
-    if(type){
-        dbPromise.onsuccess = () => {
-            const db = dbPromise.result;
-
-            var tx = db.transaction("items", "readwrite");
-            var customerData = tx.objectStore("items");
-            const items = customerData.put({id:2,type});
-            items.onsuccess = () => {
-                tx.oncomplete = function () {
-                    db.close();
-                };
-            }
-            items.onerror = (event) => {
-                console.log(event);
-                alert("Error occur");
-            }
-        }
-    }
-}
+              var tx = db.transaction("items", "readwrite");
+              var customerData = tx.objectStore("items");
+              const items = customerData.put({id:1,type});
+              items.onsuccess = () => {
+                  tx.oncomplete = function () {
+                      db.close();
+                  };
+              }
+              items.onerror = (event) => {
+                  console.log(event);
+                  alert("Error occur");
+              }
+          }
+      }
+  }
 
 
 
@@ -164,6 +163,7 @@ const Home = () => {
             </Grid>
   
             <br /><br /><br />
+            
             <select id="design-dropdown" value={type} onChange={(e) => setType(e.target.value)} style={{display:'none'}}>
               <option>Select here or click a pattern above.</option>
               <option value="T-shirt">T-shirt</option>
