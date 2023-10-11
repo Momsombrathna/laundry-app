@@ -12,7 +12,7 @@ function BarcodeScanner(props) {
   return (
     <div>
       <p>barcode: </p>
-      <p>{barCodeScan}</p>
+      <p><input type="text" value={barCodeScan} onChange={(e) => setBarCodeScan(e.target.value)} /></p>
     </div>
   );
 }
