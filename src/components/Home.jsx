@@ -174,10 +174,7 @@ import { Link } from '@mui/material';
               <option value="Suit">Suit</option>
             </select>
   
-<<<<<<< HEAD
           
-=======
->>>>>>> 90aeff855a7e76172c574a6edc87fc5de950fa6b
             <Button container spacing={8} variant="contained" size="large" disableElevation onClick={handleSubmit}>
               Next
             </Button>
