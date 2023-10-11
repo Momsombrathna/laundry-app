@@ -41,3 +41,153 @@
   color: #888;
 }
 
+body{
+  margin: 0;
+}
+
+.sidebar{
+  position: fixed;
+  width: 250px;
+  top:0;
+  left: 0;
+  bottom: 0;
+  background: #9c9494;
+  padding-top: 50px;
+}
+
+.sidebar h1{
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Rubik";
+  letter-spacing: 2px;
+  font-weight: 400;
+  margin: 0;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+.sidebar a{
+  display: block;
+  padding: 10px 20px;
+  color: #bbb;
+  text-decoration: none;
+  font-family: "Rubik";
+  letter-spacing: 2px;
+}
+
+.sidebar a:hover{
+  color: #fff;
+  margin-left: 20px;
+  transition: 0.4s;
+}
+
+/* ****************************Image Hover**************************** */
+
+
+.circle {
+  background: lightblue;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle1 {
+  background: #ff99cc;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle2 {
+  background: #ffff99;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle3 {
+  background: #cc0066;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle1 {
+  background: #99ff66;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle4 {
+  background: #0099ff;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle5 {
+  background: #ff99cc;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle6 {
+  background: #ff6600;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle7 {
+  background: #993399;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+/* ****************************Image Hover**************************** */
+
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 10%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #59879754;
+}
+.name{
+  color: rgb(254, 254, 254);
+  font-size: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+
