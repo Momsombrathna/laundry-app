@@ -8,14 +8,9 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { Link } from 'react-router-dom';
-
+const drawerWidth = 240;
 
 const Home = () => {
-  const drawerWidth = 240;
-
-  
-  
 
     return (
       <>
@@ -45,41 +40,33 @@ const Home = () => {
   
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
   
-            <Grid container spacing={8}>
+            <Grid container spacing={3}>
               <Grid item xs={4}>
-                <img width="96" onclick="SelectADropdownItem('design-dropdown','T-shirt')"
-                 height="96" src="https://img.icons8.com/fluency/96/polo-shirt.png" alt="polo-shirt"/>
+                <div className="circle"> </div>
               </Grid>
               <Grid item xs={4}>
-                <img width="96" onclick="SelectADropdownItem('design-dropdown','Shirt')"
-                 height="96" src="https://img.icons8.com/color/96/shirt.png" alt="shirt"/>
+              <div className="circle"> </div>
               </Grid>
               <Grid item xs={4}>
-                <img width="100" onclick="SelectADropdownItem('design-dropdown','Jeans')"
-                height="100" src="https://img.icons8.com/plasticine/100/jeans.png" alt="jeans"/>
+              <div className="circle"> </div>
               </Grid>
               <Grid item xs={4}>
-                <img width="96" onclick="SelectADropdownItem('design-dropdown','Dress')"
-                 height="96" src="https://img.icons8.com/emoji/96/dress.png" alt="dress"/>
+              <div className="circle"> </div>
               </Grid>
               <Grid item xs={4}>
-                <img width="96" onclick="SelectADropdownItem('design-dropdown','Demin Shorts')"
-                 height="96" src="https://img.icons8.com/color/96/denim-shorts.png" alt="denim-shorts"/>
+              <div className="circle"> </div>
               </Grid>
               <Grid item xs={4}>
-                <img width="100" onclick="SelectADropdownItem('design-dropdown','Suit')"
-                height="100" src="https://img.icons8.com/plasticine/100/suit.png" alt="suit"/>
+              <div className="circle"> </div>
               </Grid>
             </Grid>
 
   
             <br /><br /><br />
   
-            <Link to="/color">
-            <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />} size="large" disableElevation>
+            <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />}  size="large" disableElevation>
               Next
             </Button>
-            </Link>
   
           </Box>
   

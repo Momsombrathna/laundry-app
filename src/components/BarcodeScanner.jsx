@@ -11,7 +11,7 @@ function BarcodeScanner(props) {
 
   return (
     <div>
-      <p>barcode: </p>
+      <p> Barcode : </p>
       <p>{barCodeScan}</p>
     </div>
   );
