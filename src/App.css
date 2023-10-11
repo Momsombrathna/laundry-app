@@ -92,7 +92,56 @@ body{
 }
 
 .circle1 {
-  background: lightblue;
+  background: #ff99cc;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle2 {
+  background: #ffff99;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle3 {
+  background: #cc0066;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle1 {
+  background: #99ff66;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle4 {
+  background: #0099ff;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle5 {
+  background: #ff99cc;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle6 {
+  background: #ff6600;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+.circle7 {
+  background: #993399;
   border-radius: 50%;
   width: 150px;
   height: 150px;
