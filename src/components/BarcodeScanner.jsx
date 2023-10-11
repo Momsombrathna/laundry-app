@@ -11,8 +11,8 @@ function BarcodeScanner(props) {
 
   return (
     <div>
-      <p> Barcode : </p>
-      <p>{barCodeScan}</p>
+      <p>barcode: </p>
+      <p><input type="text" value={barCodeScan} onChange={(e) => setBarCodeScan(e.target.value)} /></p>
     </div>
   );
 }
