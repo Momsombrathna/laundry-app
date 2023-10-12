@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { Link } from 'react-router-dom';
 const drawerWidth = 240;
 
 const Home = () => {
@@ -40,7 +41,7 @@ const Home = () => {
   
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
   
-            <Grid container spacing={3}>
+            <Grid container spacing={12}>
               <Grid item xs={3}>
                 <div className="circle"> </div>
               </Grid>
@@ -69,11 +70,11 @@ const Home = () => {
 
   
             <br /><br /><br />
-  
+            <Link to="/brand">
             <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />}  size="large" disableElevation>
               Next
             </Button>
-  
+            </Link>
           </Box>
   
         </Box>

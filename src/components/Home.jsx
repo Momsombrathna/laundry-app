@@ -7,7 +7,8 @@ import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
-import { Link } from '@mui/material';
+import { Link } from 'react-router-dom';
+// import { Link } from '@mui/material';
 
   const idb =
     window.indexedDB ||
@@ -77,6 +78,7 @@ import { Link } from '@mui/material';
 
 
 
+
     return (
       <>
         <Box sx={{ display: 'flex' }}>
@@ -103,9 +105,9 @@ import { Link } from '@mui/material';
             </Box>
           </Drawer>
   
-          <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <Box component="main" sx={{ flexGrow: 1, p: 5 }}>
   
-            <Grid container spacing={4}>
+            <Grid container spacing={10}>
               <Grid item xs={4}>
                   <div className="container" onClick={() => selectDropdownItem('design-dropdown', 'T-shirt')} style={{cursor:'pointer'}}>
                     <img width="96" height="96" src="https://img.icons8.com/fluency/96/polo-shirt.png" alt="polo-shirt"  
@@ -173,16 +175,14 @@ import { Link } from '@mui/material';
               <option value="Shorts">Shorts</option>
               <option value="Suit">Suit</option>
             </select>
-  
-          
-            <Button container spacing={8} variant="contained" size="large" disableElevation onClick={handleSubmit}>
+            <Link to = "/color">
+            <Button container spacing={8} variant="contained"  size="large" disableElevation>
               Next
             </Button>
-  
+            </Link>
+             
           </Box>
-  
         </Box>
-  
       </>
     );
   };

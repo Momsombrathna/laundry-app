@@ -11,8 +11,8 @@ function BarcodeScanner(props) {
 
   return (
     <div>
-      <p>barcode: </p>
-      <p><input type="text" value={barCodeScan} onChange={(e) => setBarCodeScan(e.target.value)} /></p>
+      <p style={{ fontFamily: 'sans-serif' ,fontSize: 15,color: 'white'}}>Barcode: </p>
+      <p><input type="text" value={barCodeScan} onChange={(e) => setBarCodeScan(e.target.value)} style={{backgroundColor: 'blue ',width:'200px',height:'100px',fontSize: 20,fontFamily: 'sans-serif',textAlign: 'center'}} /></p>
     </div>
   );
 }
