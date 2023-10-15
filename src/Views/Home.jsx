@@ -7,96 +7,79 @@ import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import BarcodeScanner from '../components/BarcodeScanner';
-import Cloth from '../components/Cloth';
+import Clothes from '../components/Clothes';
 import Color from '../components/Color';
 import Brand from '../components/Brand';
 import Note from '../components/Note';
 import TakePhoto from '../components/TakePhoto';
-import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
-      const idb =
-        window.indexedDB ||
-        window.mozIndexedDB ||
-        window.webkitIndexedDB ||
-        window.msIndexedDB ||
-        window.shimIndexedDB;
-
-      const createCollectionsIndexedDB = () => {
-        //check for support
-        if (!idb) {
-            console.log("This browser doesn't support IndexedDB");
-            return;
-        }
-
-        const slides = [
-          <div className="slide">Slide 1</div>,
-          <div className="slide">Slide 2</div>,
-          <div className="slide">Slide 3</div>,
-        ];
-
-
-
-        var request = indexedDB.open("laundry", 2);
-        request.onupgradeneeded = () => {
-            //var db = event.target.result;
-            var db = request.result;
-            db.createObjectStore("items",{keyPath:"id", autoIncrement:true});
-            // document.write("Object store Created Successfully...");
-        };
-
-        request.onsuccess = function () {
-          console.log("Database opened successfully");
-        };
-      }
-
+    const Home = () => {
 
       const drawerWidth = 240;
 
-      const Home = () => {
-        const [type, setType] = useState(" ");  
-        const selectDropdownItem = (id, val) => {
-          setType(val);
-        };
-
-        useEffect(()=>{
-          createCollectionsIndexedDB();
-        }, []);
-
-        //Insert Data
-        const handleSubmit = () => {
-          const dbPromise = idb.open("laundry", 2);
-          if(type){
-              dbPromise.onsuccess = () => {
-                  const db = dbPromise.result;
-
-                  var tx = db.transaction("items", "readwrite");
-                  var customerData = tx.objectStore("items");
-                  const items = customerData.put({id:1,type});
-                  items.onsuccess = () => {
-                      tx.oncomplete = function () {
-                          db.close();
-                      };
-                  }
-                  items.onerror = (event) => {
-                      console.log(event);
-                      alert("Error occur");
-                  }
-              }
-          }
-      }
-
-      // Switch to the another component 
       const [currentComponent, setCurrentComponent] = useState(1);
-
+      const [selectedItems, setSelectedItems] = useState([]);
+    
       const handleNextButtonClick = () => {
         setCurrentComponent(currentComponent + 1);
       };
     
       const handlePreviousButtonClick = () => {
         setCurrentComponent(currentComponent - 1);
+      };
+    
+      const handleItemSelection = (item) => {
+        setSelectedItems([...selectedItems, item]);
+      };
+
+    
+      const handleSubmit = () => {
+
+      // Insert the selected items into indexedDB
+      const selectedItemsData = {
+        items: selectedItems
+      };
+
+      // Assuming you have an indexedDB instance named "myDB"
+      const request = window.indexedDB.open("myDB", 1);
+
+      request.onerror = (event) => {
+        console.log("Error opening indexedDB:", event.target.error);
+      };
+
+      request.onsuccess = (event) => {
+        const db = event.target.result;
+
+        // Create a transaction and access the object store
+        const transaction = db.transaction(["selectedItems"], "readwrite");
+        const objectStore = transaction.objectStore("selectedItems");
+
+        // Add the selected items data to the object store
+        const addRequest = objectStore.add(selectedItemsData);
+
+        addRequest.onsuccess = () => {
+          console.log("Selected items inserted into indexedDB");
+        };
+
+        addRequest.onerror = (event) => {
+          console.log("Error inserting selected items:", event.target.error);
+        };
+
+        // Reset the selected items
+        setSelectedItems([]);
+      };
+
+      request.onupgradeneeded = (event) => {
+        const db = event.target.result;
+
+        // Create an object store if it doesn't exist
+        if (!db.objectStoreNames.contains("selectedItems")) {
+          db.createObjectStore("selectedItems", { autoIncrement: true });
+        }
+      };
+        setSelectedItems([]);
       };
 
 
@@ -120,7 +103,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
   
               <List>
   
-                <BarcodeScanner />
+                <BarcodeScanner onItemSelection={handleItemSelection} />
   
               </List>
   
@@ -129,29 +112,28 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
   
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
   
-          {currentComponent === 1 && <Cloth />}
-          {currentComponent === 2 && <Color />}
-          {currentComponent === 3 && <Brand />}
-          {currentComponent === 4 && <Note />}
-          {currentComponent === 5 && <TakePhoto />}
+          {currentComponent === 1 && <Clothes onItemSelection={handleItemSelection} />}
+          {currentComponent === 2 && <Color onItemSelection={handleItemSelection} />}
+          {currentComponent === 3 && <Brand onItemSelection={handleItemSelection} />}
+          {currentComponent === 4 && <Note onItemSelection={handleItemSelection} />}
+          {currentComponent === 5 && <TakePhoto onItemSelection={handleItemSelection} />}
           {currentComponent !== 1 && (
-            <Button container spacing={8}  variant="contained" size="large" onClick={handlePreviousButtonClick}>
-              Back
+            <Button container spacing={8}  variant="outlined" size="meduim" onClick={handlePreviousButtonClick}>
+              BACK
             </Button>
           )}
           &nbsp; &nbsp; 
           {currentComponent !== 5 && (
-            <Button container spacing={8} endicon={ArrowForwardIcon} variant="contained" size="large" onClick={handleNextButtonClick}>
-              Next
+            <Button container spacing={8} variant="contained" size="medium" onClick={handleNextButtonClick}>
+              NEXT
+              <ArrowForwardIcon />
             </Button>
           )}
-
-
-  
-          
-            {/* <Button container spacing={8} variant="contained" size="large" disableElevation onClick={handleSubmit}>
-              Next
-            </Button> */}
+          {currentComponent === 5 && (
+            <Button container spacing={8} variant="contained" size="medium" onClick={handleSubmit}>
+              SUBMIT
+            </Button>
+          )}
   
           </Box>
   

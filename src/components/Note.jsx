@@ -2,39 +2,15 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
-const drawerWidth = 240;
-
-const Home = () => {
+const Note = () => {
 
     return (
       <>
-        <Grid container spacing={3}>
-              <Grid item xs={3}>
-                <div className="circle"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle1"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle2"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle3"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle4"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle5"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle6"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle7"> </div>
-              </Grid>
-            </Grid>
+        <h2>Note</h2>
 
   
             <br /><br /><br />
@@ -44,5 +20,5 @@ const Home = () => {
     );
   };
   
-  export default Home;
+  export default Note;
   

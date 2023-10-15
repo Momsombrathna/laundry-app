@@ -9,32 +9,7 @@ const TakePhoto = () => {
 
     return (
       <>
-        <Grid container spacing={3}>
-              <Grid item xs={3}>
-                <div className="circle"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle1"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle2"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle3"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle4"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle5"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle6"> </div>
-              </Grid>
-              <Grid item xs={3}>
-              <div className="circle7"> </div>
-              </Grid>
-            </Grid>
+        <h2>Take Photo</h2>
 
   
             <br /><br /><br />
