@@ -13,6 +13,8 @@ import Brand from '../components/Brand';
 import Note from '../components/Note';
 import TakePhoto from '../components/TakePhoto';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
       const idb =
@@ -133,16 +135,18 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
           {currentComponent === 4 && <Note />}
           {currentComponent === 5 && <TakePhoto />}
           {currentComponent !== 1 && (
-            <Button container spacing={8} variant="contained" size="large" onClick={handlePreviousButtonClick}>
+            <Button container spacing={8}  variant="contained" size="large" onClick={handlePreviousButtonClick}>
               Back
             </Button>
           )}
           &nbsp; &nbsp; 
           {currentComponent !== 5 && (
-            <Button container spacing={8} variant="contained" size="large" onClick={handleNextButtonClick}>
+            <Button container spacing={8} endicon={ArrowForwardIcon} variant="contained" size="large" onClick={handleNextButtonClick}>
               Next
             </Button>
           )}
+
+
   
           
             {/* <Button container spacing={8} variant="contained" size="large" disableElevation onClick={handleSubmit}>
