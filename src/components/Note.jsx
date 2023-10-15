@@ -34,7 +34,7 @@ const Home = () => {
               <Grid item xs={3}>
               <div className="circle7"> </div>
               </Grid>
-          </Grid>
+            </Grid>
 
   
             <br /><br /><br />

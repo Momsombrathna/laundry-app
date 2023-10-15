@@ -5,7 +5,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const drawerWidth = 240;
 
-const Home = () => {
+const TakePhoto = () => {
 
     return (
       <>
@@ -34,7 +34,7 @@ const Home = () => {
               <Grid item xs={3}>
               <div className="circle7"> </div>
               </Grid>
-          </Grid>
+            </Grid>
 
   
             <br /><br /><br />
@@ -44,5 +44,5 @@ const Home = () => {
     );
   };
   
-  export default Home;
+  export default TakePhoto;
   

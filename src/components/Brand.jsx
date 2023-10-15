@@ -1,15 +1,21 @@
 import * as React from 'react';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import CssBaseline from '@mui/material/CssBaseline';
+
+import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
+import BarcodeScanner from './BarcodeScanner';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
 const drawerWidth = 240;
 
-const Home = () => {
+const Brand = () => {
 
     return (
       <>
-        <Grid container spacing={3}>
+  
+          <Grid container spacing={3}>
               <Grid item xs={3}>
                 <div className="circle"> </div>
               </Grid>
@@ -38,11 +44,15 @@ const Home = () => {
 
   
             <br /><br /><br />
+
   
+
+
+        
   
       </>
     );
   };
   
-  export default Home;
+  export default Brand;
   
