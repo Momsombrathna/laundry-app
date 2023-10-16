@@ -4,7 +4,6 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import BarcodeScanner from '../components/BarcodeScanner';
 import Clothes from '../components/Clothes';
@@ -36,39 +35,43 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
     
       const handleSubmit = () => {
-
-      // Insert the selected items into indexedDB
-      const selectedItemsData = {
-        items: selectedItems
-      };
-
-      // Assuming you have an indexedDB instance named "myDB"
-      const request = window.indexedDB.open("myDB", 1);
-
-      request.onerror = (event) => {
-        console.log("Error opening indexedDB:", event.target.error);
-      };
-
-      request.onsuccess = (event) => {
-        const db = event.target.result;
-
-        // Create a transaction and access the object store
-        const transaction = db.transaction(["selectedItems"], "readwrite");
-        const objectStore = transaction.objectStore("selectedItems");
-
-        // Add the selected items data to the object store
-        const addRequest = objectStore.add(selectedItemsData);
-
-        addRequest.onsuccess = () => {
-          console.log("Selected items inserted into indexedDB");
+        // Insert the selected items into indexedDB
+        const selectedItemsData = {
+          items: selectedItems
         };
-
-        addRequest.onerror = (event) => {
-          console.log("Error inserting selected items:", event.target.error);
+      
+        // Assuming you have an indexedDB instance named "myDB"
+        const request = window.indexedDB.open("myDB", 1);
+      
+        request.onerror = (event) => {
+          console.log("Error opening indexedDB:", event.target.error);
         };
-
-        // Reset the selected items
-        setSelectedItems([]);
+      
+        request.onsuccess = (event) => {
+          const db = event.target.result;
+      
+          // Create a transaction and access the object store
+          const transaction = db.transaction(["selectedItems"], "readwrite");
+          const objectStore = transaction.objectStore("selectedItems");
+      
+          // Add the selected items data to the object store
+          const addRequest = objectStore.add(selectedItemsData);
+      
+          addRequest.onsuccess = () => {
+            console.log("Selected items inserted into indexedDB");
+      
+            // Refresh the page
+            window.location.reload();
+            // Or use document.location.reload(true);
+          };
+      
+          addRequest.onerror = (event) => {
+            console.log("Error inserting selected items:", event.target.error);
+            
+          };
+      
+          // Reset the selected items
+          setSelectedItems([]);
       };
 
       request.onupgradeneeded = (event) => {
