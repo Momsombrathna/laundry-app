@@ -2,6 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Link } from 'react-router-dom';
 
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
@@ -10,7 +12,7 @@ import BarcodeScanner from './BarcodeScanner';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 const drawerWidth = 240;
 
-const Home = () => {
+const Color = () => {
 
     return (
       <>
@@ -42,41 +44,51 @@ const Home = () => {
   
             <Grid container spacing={3}>
               <Grid item xs={3}>
-                <div className="circle"> </div>
+                <button className="circle"> </button>
               </Grid>
               <Grid item xs={3}>
-              <div className="circle1"> </div>
+              <button className="circle1"> </button>
               </Grid>
               <Grid item xs={3}>
-              <div className="circle2"> </div>
+              <button className="circle2"> </button>
               </Grid>
               <Grid item xs={3}>
-              <div className="circle3"> </div>
+              <button className="circle3"> </button>
               </Grid>
               <Grid item xs={3}>
-              <div className="circle4"> </div>
+              <button className="circle4"> </button>
               </Grid>
               <Grid item xs={3}>
-              <div className="circle5"> </div>
+              <button className="circle5"> </button>
               </Grid>
               <Grid item xs={3}>
-              <div className="circle6"> </div>
+              <button className="circle6"> </button>
               </Grid>
               <Grid item xs={3}>
-              <div className="circle7"> </div>
+              <button className="circle7"> </button>
               </Grid>
             </Grid>
 
   
             <br /><br /><br />
-  
-            <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />}  size="large" disableElevation>
-              Next
+            <Link to="/">
+            <Button container spacing={8} variant="outlined" size="meduim" disableElevation startIcon={<ArrowBackIcon />} >
+              BACk
             </Button>
+            </Link>
+
+            &nbsp;&nbsp;
+  
+            <Link to="/brand">
+            <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />}  size="meduim" disableElevation>
+              NEXT
+            </Button>
+            </Link>
   
           </Box>
   
         </Box>
+
 
         
   
@@ -84,5 +96,5 @@ const Home = () => {
     );
   };
   
-  export default Home;
+  export default Color;
   

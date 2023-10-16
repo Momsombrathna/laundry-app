@@ -1,16 +1,24 @@
 import * as React from 'react';
-import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import CssBaseline from '@mui/material/CssBaseline';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Link } from 'react-router-dom';
 
+import List from '@mui/material/List';
+import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
+import BarcodeScanner from './BarcodeScanner';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+const drawerWidth = 240;
 
 const Brand = () => {
 
 
     return (
       <>
-
-
-          <Box sx={{ display: 'flex' }}>
-          <CssBaseline />
+        <Box sx={{ display: 'flex' }}>
+          <CssBaseline style={{ backgroundColor: 'gray'}} />
   
           <Drawer
             variant="permanent"
@@ -21,7 +29,7 @@ const Brand = () => {
               [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box', backgroundColor: 'gray' },
             }}
           >
-            <Toolbar />
+            
             <Box sx={{ overflow: 'auto' }}>
   
               <List>
@@ -98,23 +106,22 @@ const Brand = () => {
               </button>
             </Grid>
           </Grid>
+
   
             <br /><br /><br />
-            
-            <select id="design-dropdown" value={type} onChange={(e) => setType(e.target.value)} style={{display:'none'}}>
-              <option>Select here or click a pattern above.</option>
-              <option value="T-shirt">T-shirt</option>
-              <option value="Shirt">Shirt</option>
-              <option value="Jeans">Jeans</option>
-              <option value="Demin">Demin</option>
-              <option value="Shorts">Shorts</option>
-              <option value="Suit">Suit</option>
-            </select>
+            <Link to="/color">
+            <Button container spacing={8} variant="outlined" size="meduim" disableElevation startIcon={<ArrowBackIcon />} >
+              BACK
+            </Button>
+            </Link>
+
+            &nbsp;&nbsp;
   
-          
-            <Button container spacing={8} variant="contained" size="large" disableElevation onClick={handleSubmit}>
+            <Link to="/note">
+            <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />}  size="meduim" disableElevation>
               Next
             </Button>
+            </Link>
   
           </Box>
   

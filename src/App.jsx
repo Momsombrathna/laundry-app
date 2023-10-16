@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom'
 import Home from './components/Home'
 import Color from './components/Color'
 import Brand from './components/Brand'
+import Note from './components/Note'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/color" element={<Color />} />
           <Route path="/brand" element={<Brand />} />
+          <Route path="/note" element={<Note />} />
         </Routes>
       </Router>
     </>
