@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from 'react';
+//import React, {useEffect,useState} from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -8,80 +8,23 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-
-  const idb =
-    window.indexedDB ||
-    window.mozIndexedDB ||
-    window.webkitIndexedDB ||
-    window.msIndexedDB ||
-    window.shimIndexedDB;
-
-  const createCollectionsIndexedDB = () => {
-    //check for support
-    if (!idb) {
-        console.log("This browser doesn't support IndexedDB");
-        return;
-    }
-
-
-
-    var request = indexedDB.open("laundry", 2);
-    request.onupgradeneeded = () => {
-        //var db = event.target.result;
-        var db = request.result;
-        db.createObjectStore("items",{keyPath:"id", autoIncrement:true});
-        // document.write("Object store Created Successfully...");
-    };
-
-    request.onsuccess = function () {
-      console.log("Database opened successfully");
-    };
-  }
-
+import { useDispatch, useSelector } from 'react-redux';
+import { setType } from '../redux/slices/barcodeSlice';
 
   const drawerWidth = 240;
 
   const Home = () => {
-    const barcode = useSelector(
-      (state) => state.barcodeScanner.barcode,
+    
+    const dispatch = useDispatch();
+    const type = useSelector(
+      (state) => state.barcodeScanner.type,
     );
 
-    const [type, setType] = useState(" ");  
     const selectDropdownItem = (id, val) => {
-      setType(val);
+        dispatch(setType(val));
     };
 
-    useEffect(()=>{
-      createCollectionsIndexedDB();
-    }, []);
-
-    //Insert Data
-    const handleSubmit = () => {
-      const dbPromise = idb.open("laundry", 2);
-      if(type){
-          dbPromise.onsuccess = () => {
-              const db = dbPromise.result;
-
-              var tx = db.transaction("items", "readwrite");
-              var customerData = tx.objectStore("items");
-              const items = customerData.put({id:barcode,type});
-              items.onsuccess = () => {
-                  tx.oncomplete = function () {
-                      db.close();
-                  };
-              }
-              items.onerror = (event) => {
-                  console.log(event);
-                  alert("Error occur");
-              }
-          }
-      }
-  }
-
-
-
-
+   
     return (
       <>
         <Box sx={{ display: 'flex' }}>
@@ -181,7 +124,7 @@ import { useSelector } from 'react-redux';
   
           
             <Link to="/color">
-            <Button container spacing={8} variant="contained" size="large" disableElevation onClick={handleSubmit}>
+            <Button container spacing={8} variant="contained" size="large" disableElevation disabled={!type}>
               Next
             </Button>
             </Link>
