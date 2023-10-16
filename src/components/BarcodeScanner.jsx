@@ -1,20 +1,23 @@
-import React, { useState } from "react";
-import useScanDetection from "use-scan-detection";
+import React, { useState } from 'react';
+import useScanDetection from 'use-scan-detection';
 
-function BarcodeScanner(props) {
-  const [barCodeScan, setBarCodeScan] = useState("No Barcode Scanned");
+const BarcodeScanner = ({ onItemSelection }) => {
+  const [barcode, setBarcodeScan] = useState('No Barcode Scanned');
 
   useScanDetection({
-    onComplete: setBarCodeScan,
+    onComplete: (scannedBarcode) => {
+      setBarcodeScan(scannedBarcode);
+      onItemSelection(scannedBarcode); // Pass the scanned barcode to the parent component
+    },
     minLength: 3,
   });
 
   return (
     <div>
-      <p style={{ fontFamily: 'sans-serif' ,fontSize: 15,color: 'white'}}>Barcode: </p>
-      <p><input type="text" value={barCodeScan} onChange={(e) => setBarCodeScan(e.target.value)} style={{backgroundColor: 'blue ',width:'200px',height:'100px',fontSize: 20,fontFamily: 'sans-serif',textAlign: 'center'}} /></p>
+      <p>Barcode:</p>
+      <p>{barcode}</p> 
     </div>
   );
-}
+};
 
 export default BarcodeScanner;

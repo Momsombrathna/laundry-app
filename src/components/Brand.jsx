@@ -1,105 +1,85 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
-import BarcodeScanner from './BarcodeScanner';
-const drawerWidth = 240;
-const Home = () => {
+
+
+const Brand = ({ onItemSelection }) => {
+
+  const handleItemSelect = (item) => {
+    onItemSelection(item);
+  };
+
     return (
       <>
-      <Box sx={{ display: 'flex' }}>
-          <CssBaseline />
   
-          <Drawer
-            variant="permanent"
-            sx={{
-              width: drawerWidth,
-              color: 'text.disabled',
-              flexShrink: 0,
-              [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box',backgroundColor: 'gray' },
-            }}
-          >
-            <Toolbar />
-            <Box sx={{ overflow: 'auto' }}>
-  
-              <List>
-  
-                <BarcodeScanner />
-  
-              </List>
-  
-            </Box>
-          </Drawer>
-  
-          <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-  
-            <Grid container spacing={8}>
-              <Grid item xs={4}>
-              <div className="container" onClick={() => selectDropdownItem('design-dropdown', 'T-shirt')} style={{cursor:'pointer'}}>
-              <img width="96" height="96" src="https://img.icons8.com/color/240/huion.png" alt="huion"/>
-              <div class="overlay">
-              <div class="text name">Unions</div>
-              </div>
-              </div>
-              </Grid>
-              <Grid item xs={4}>
-              <div className="container" onClick={() => selectDropdownItem('design-dropdown', 'T-shirt')} style={{cursor:'pointer'}}>
-              <img width="96" height="96" src="https://img.icons8.com/ios/250/gucci.png" alt="gucci"/>
-              <div class="overlay">
-              <div class="text name">Gucci</div>
-              </div>
-              </div>
-              </Grid>
-              <Grid item xs={4}>
-              <div className="container" onClick={() => selectDropdownItem('design-dropdown', 'T-shirt')} style={{cursor:'pointer'}}>
-              <img width="96" height="96" src="https://img.icons8.com/badges/240/nike.png" alt="nike"/>
-              <div class="overlay">
-              <div class="text name">Nike</div>
-              </div>
-              </div>
-              </Grid>
-              <Grid item xs={4}>
-              <div className="container" onClick={() => selectDropdownItem('design-dropdown', 'T-shirt')} style={{cursor:'pointer'}}>
-              <img width="96" height="96" src="https://img.icons8.com/ios-filled/250/adidas-trefoil.png" alt="adidas-trefoil"/>
-              <div class="overlay">
-              <div class="text name">Addidas</div>
-              </div>
-              </div>
-              </Grid>
-              <Grid item xs={4}>
-              <div className="container" onClick={() => selectDropdownItem('design-dropdown', 'T-shirt')} style={{cursor:'pointer'}}>
-              <img width="96" height="96" src="https://img.icons8.com/ios-filled/250/supreme.png" alt="supreme"/>
-              <div class="overlay">
-              <div class="text name">Supreme</div>
-              </div>
-              </div>
-              </Grid>
-              <Grid item xs={4}>
-              <div className="container" onClick={() => selectDropdownItem('design-dropdown', 'T-shirt')} style={{cursor:'pointer'}}>
-               <img width="100" height="100" src="https://img.icons8.com/color/240/h-and-m.png" alt="h-and-m"/>
-               <div class="overlay">
-              <div class="text name">H & M</div>
-              </div>
-              </div>
-              </Grid>
-            </Grid>
-  
-            <br /><br /><br />
+  <Grid container spacing={2}>
+            <Grid item xs={4}>
+              <button className="container" style={{ cursor: 'pointer' }} onClick={() => handleItemSelect('Aiddas')}>
+                <img width="100" height="100" 
+                src="https://d3sxshmncs10te.cloudfront.net/icon/free/svg/202714.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTY5NzU4NzIwMCwicSI6bnVsbCwiaWF0IjoxNjk3MzgxODQ3fQ__.afffdfb4213d931ace7406817d5053992d79531b07f5806c81e21194bb464386"
+                alt="polo-shirt" />
+                <div className="overlay">
+      
+                </div>
+              </button>
             
-            <Button container spacing={8} variant="contained"  size="large" disableElevation>
-              Next
-            </Button>
-           
-  
-          </Box>
-  
-        </Box>
-        </>
-    );
-};
+            </Grid>
+            <Grid item xs={4}>
+              <button className="container" style={{ cursor: 'pointer' }} onClick={() => handleItemSelect('Levis')}>
+                <img width="100" height="100" 
+                src="https://d3sxshmncs10te.cloudfront.net/icon/free/svg/202644.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTY5NzU4NzIwMCwicSI6bnVsbCwiaWF0IjoxNjk3MzgxODQ3fQ__.56ec4dfe9b09ac10b8f507b5ffce94f484562809c22be59e98a047fc8c5f7d5e" 
+                alt="Levi's" style={{ cursor: 'pointer' }} />
+                <div className="overlay">
+      
+                </div>
+              </button>
+            </Grid>
+            <Grid item xs={4}>
+              <button className="container" style={{ cursor: 'pointer' }} onClick={() => handleItemSelect('Calvin klein')}>
+                <img width="100" height="100" 
+                src="https://d3sxshmncs10te.cloudfront.net/icon/free/svg/202551.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTY5NzU4NzIwMCwicSI6bnVsbCwiaWF0IjoxNjk3MzgxODQ3fQ__.060294b56abed9e3baa76e6d85778f432e4d9dd19379f2e446ed4bc032e1bbce" 
+                alt="Calvin klein" />
+                <div className="overlay">
+                  
+                </div>
+              </button>
+            </Grid>
+            <Grid item xs={4}>
+              <button className="container" style={{ cursor: 'pointer' }} onClick={() => handleItemSelect('Gucci')}>
+                <img width="100" height="100" 
+                src="https://d3sxshmncs10te.cloudfront.net/icon/free/svg/202607.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTY5NzU4NzIwMCwicSI6bnVsbCwiaWF0IjoxNjk3MzgxODQ4fQ__.b38b05790e6c8e7d786170b9d8c8e3dae8552b228ace1273496451d217e8dfc8" 
+                alt="Gucci" />
+                <div className="overlay">
+                  
+                </div>
+              </button>
+            </Grid>
+            <Grid item xs={4}>
+              <button className="container" style={{ cursor: 'pointer' }} onClick={() => handleItemSelect('Guess')}>
+                <img width="100" height="100" 
+                src="https://d3sxshmncs10te.cloudfront.net/icon/free/svg/202627.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTY5NzU4NzIwMCwicSI6bnVsbCwiaWF0IjoxNjk3MzgxODQ4fQ__.f1a11c9832a2d29c2dae1adc692497e76c0cc5ff9e7681757e7662bd747a6f6f" 
+                alt="Guess" />
+                <div className="overlay">
+              
+                </div>
+              </button>
+            </Grid>
+            <Grid item xs={4}>
+              <button className="container" style={{ cursor: 'pointer' }} onClick={() => handleItemSelect('Lacoste')}>
+                <img width="100" height="100" 
+                src="https://d3sxshmncs10te.cloudfront.net/icon/free/svg/202631.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTY5NzU4NzIwMCwicSI6bnVsbCwiaWF0IjoxNjk3MzgxODQ4fQ__.5fcd66d0399565ac6cd000f2ece53942a01e13d408eabaa7a2ba9df04dc8d267" 
+                alt="Lacoste" />
+                <div className="overlay">
+                  <div className="text name">Suit</div>
+                </div>
+              </button>
+            </Grid>
+          </Grid>
 
-export default Home;
+
+            <br /><br /><br /> 
+      </>
+    );
+  };
+  
+  export default Brand;
+  

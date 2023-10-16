@@ -87,14 +87,14 @@ body{
 
 
 .circle {
-  background: lightblue;
+  background: #F9DEC9;
   border-radius: 50%;
   width: 150px;
   height: 150px;
 }
 
 .circle1 {
-  background: #ff99cc;
+  background: #37E2D5;
   border-radius: 50%;
   width: 150px;
   height: 150px;
@@ -109,13 +109,6 @@ body{
 
 .circle3 {
   background: #cc0066;
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-}
-
-.circle1 {
-  background: #99ff66;
   border-radius: 50%;
   width: 150px;
   height: 150px;
@@ -153,7 +146,8 @@ body{
 
 .container {
   position: relative;
-  width: 98%;
+  background-color: transparent;
+  width: 50%;
 }
 
 .image {
