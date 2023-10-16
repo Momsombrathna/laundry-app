@@ -12,7 +12,7 @@ import BarcodeScanner from './BarcodeScanner';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 const drawerWidth = 240;
 
-const Color = () => {
+const Note = () => {
 
     return (
       <>
@@ -39,39 +39,17 @@ const Color = () => {
   
             </Box>
           </Drawer>
+
+          <h2>Note</h2>
   
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+
   
-            <Grid container spacing={3}>
-              <Grid item xs={3}>
-                <button className="circle"> </button>
-              </Grid>
-              <Grid item xs={3}>
-              <button className="circle1"> </button>
-              </Grid>
-              <Grid item xs={3}>
-              <button className="circle2"> </button>
-              </Grid>
-              <Grid item xs={3}>
-              <button className="circle3"> </button>
-              </Grid>
-              <Grid item xs={3}>
-              <button className="circle4"> </button>
-              </Grid>
-              <Grid item xs={3}>
-              <button className="circle5"> </button>
-              </Grid>
-              <Grid item xs={3}>
-              <button className="circle6"> </button>
-              </Grid>
-              <Grid item xs={3}>
-              <button className="circle7"> </button>
-              </Grid>
-            </Grid>
+            <textarea name="" style={{backgroundColor: 'white', color: 'black', width: '500px'}} id="" cols="30" rows="10"></textarea>
 
   
             <br /><br /><br />
-            <Link to="/">
+            <Link to="/brand">
             <Button container spacing={8} variant="outlined" size="meduim" disableElevation startIcon={<ArrowBackIcon />} >
               BACk
             </Button>
@@ -79,22 +57,19 @@ const Color = () => {
 
             &nbsp;&nbsp;
   
-            <Link to="/brand">
+            {/* <Link to="/brand"> */}
             <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />}  size="meduim" disableElevation>
-              NEXT
+              Submit
             </Button>
-            </Link>
+            {/* </Link> */}
   
           </Box>
   
         </Box>
 
-
-        
   
       </>
     );
   };
   
-  export default Color;
-  
+  export default Note;
