@@ -2,16 +2,40 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 
 
-const Brand = ({ onItemSelection }) => {
+const Brand = () => {
 
-  const handleItemSelect = (item) => {
-    onItemSelection(item);
-  };
 
     return (
       <>
+
+
+          <Box sx={{ display: 'flex' }}>
+          <CssBaseline />
   
-  <Grid container spacing={2}>
+          <Drawer
+            variant="permanent"
+            sx={{
+              width: drawerWidth,
+              color: 'text.disabled',
+              flexShrink: 0,
+              [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box', backgroundColor: 'gray' },
+            }}
+          >
+            <Toolbar />
+            <Box sx={{ overflow: 'auto' }}>
+  
+              <List>
+  
+                <BarcodeScanner />
+  
+              </List>
+  
+            </Box>
+          </Drawer>
+  
+          <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+  
+          <Grid container spacing={2}>
             <Grid item xs={4}>
               <button className="container" style={{ cursor: 'pointer' }} onClick={() => handleItemSelect('Aiddas')}>
                 <img width="100" height="100" 
@@ -74,9 +98,27 @@ const Brand = ({ onItemSelection }) => {
               </button>
             </Grid>
           </Grid>
-
-
-            <br /><br /><br /> 
+  
+            <br /><br /><br />
+            
+            <select id="design-dropdown" value={type} onChange={(e) => setType(e.target.value)} style={{display:'none'}}>
+              <option>Select here or click a pattern above.</option>
+              <option value="T-shirt">T-shirt</option>
+              <option value="Shirt">Shirt</option>
+              <option value="Jeans">Jeans</option>
+              <option value="Demin">Demin</option>
+              <option value="Shorts">Shorts</option>
+              <option value="Suit">Suit</option>
+            </select>
+  
+          
+            <Button container spacing={8} variant="contained" size="large" disableElevation onClick={handleSubmit}>
+              Next
+            </Button>
+  
+          </Box>
+  
+        </Box>
       </>
     );
   };
