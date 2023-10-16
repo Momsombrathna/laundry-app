@@ -8,6 +8,7 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
 import { Link } from '@mui/material';
+import { useSelector } from 'react-redux';
 
   const idb =
     window.indexedDB ||
@@ -42,6 +43,10 @@ import { Link } from '@mui/material';
   const drawerWidth = 240;
 
   const Home = () => {
+    const barcode = useSelector(
+      (state) => state.barcodeScanner.barcode,
+    );
+
     const [type, setType] = useState(" ");  
     const selectDropdownItem = (id, val) => {
       setType(val);
@@ -60,7 +65,7 @@ import { Link } from '@mui/material';
 
               var tx = db.transaction("items", "readwrite");
               var customerData = tx.objectStore("items");
-              const items = customerData.put({id:1,type});
+              const items = customerData.put({id:barcode,type});
               items.onsuccess = () => {
                   tx.oncomplete = function () {
                       db.close();
