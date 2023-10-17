@@ -4,6 +4,7 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import List from '@mui/material/List';
 //import Grid from '@mui/material/Grid';
@@ -72,7 +73,7 @@ const Note = () => {
             const items = customerData.put({id:barcode,type,color,brand,note});
             items.onsuccess = () => {
                 tx.oncomplete = function () {
-                    window.location.reload();
+                    toast.success('Items added successfully');
                     db.close();
                 };
             }

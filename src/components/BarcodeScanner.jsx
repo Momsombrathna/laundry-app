@@ -19,8 +19,13 @@ const BarcodeScanner = () => {
   return (
     <div>
 
-      <p>barcode: </p>
-      <input type="text" value={barcode}/>
+      <p>Barcode : </p>
+      <input
+        style={{width: 'auto', 
+          height: '35px',
+          borderRadius: '5px', 
+          border: '1px solid gray'}}
+        type="text" value={barcode}/>
     </div>
   );
 }
