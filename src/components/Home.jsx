@@ -10,6 +10,7 @@ import BarcodeScanner from './BarcodeScanner';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setType } from '../redux/slices/barcodeSlice';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
   const drawerWidth = 240;
 
@@ -39,7 +40,7 @@ import { setType } from '../redux/slices/barcodeSlice';
               [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box', backgroundColor: 'gray' },
             }}
           >
-            <Toolbar />
+            
             <Box sx={{ overflow: 'auto' }}>
   
               <List>
@@ -124,7 +125,7 @@ import { setType } from '../redux/slices/barcodeSlice';
   
           
             <Link to="/color">
-            <Button container spacing={8} variant="contained" size="large" disableElevation disabled={!type}>
+            <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />} size="large" disableElevation disabled={!type}>
               Next
             </Button>
             </Link>

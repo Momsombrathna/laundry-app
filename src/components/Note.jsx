@@ -9,7 +9,6 @@ import List from '@mui/material/List';
 //import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
@@ -138,11 +137,11 @@ const Note = () => {
 
             &nbsp;&nbsp;
   
-            {/* <Link to="/brand"> */}
-            <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />} size="meduim" disableElevation onClick={handleSubmit}>
+            <Link to="/">
+            <Button container spacing={8} variant="contained"  size="meduim" disableElevation onClick={handleSubmit}>
               Submit
             </Button>
-            {/* </Link> */}
+            </Link>
   
           </Box>
   

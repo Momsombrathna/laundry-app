@@ -58,40 +58,30 @@ const Color = () => {
                 <button className="circle" onClick={() => selectDropdownItem('design-dropdown', 'F9DEC9')} style={{cursor:'pointer'}}> </button>
               </Grid>
               <Grid item xs={3}>
-              <button className="circle1" onClick={() => selectDropdownItem('design-dropdown', '37E2D5')} style={{cursor:'pointer'}}> </button>
+              <button className="circle1" onClick={() => selectDropdownItem('design-dropdown', '#37E2D5')} style={{cursor:'pointer'}}> </button>
               </Grid>
               <Grid item xs={3}>
-              <button className="circle2" onClick={() => selectDropdownItem('design-dropdown', 'ffff99')} style={{cursor:'pointer'}}> </button>
+              <button className="circle2" onClick={() => selectDropdownItem('design-dropdown', '#FFF99')} style={{cursor:'pointer'}}> </button>
               </Grid>
               <Grid item xs={3}>
-              <button className="circle3" onClick={() => selectDropdownItem('design-dropdown', 'cc0066')} style={{cursor:'pointer'}}> </button>
+              <button className="circle3" onClick={() => selectDropdownItem('design-dropdown', '#CC0066')} style={{cursor:'pointer'}}> </button>
               </Grid>
               <Grid item xs={3}>
-              <button className="circle4" onClick={() => selectDropdownItem('design-dropdown', '0099ff')} style={{cursor:'pointer'}}> </button>
+              <button className="circle4" onClick={() => selectDropdownItem('design-dropdown', '#0099FF')} style={{cursor:'pointer'}}> </button>
               </Grid>
               <Grid item xs={3}>
-              <button className="circle5" onClick={() => selectDropdownItem('design-dropdown', 'ff99cc')} style={{cursor:'pointer'}}> </button>
+              <button className="circle5" onClick={() => selectDropdownItem('design-dropdown', '#FF99FF')} style={{cursor:'pointer'}}> </button>
               </Grid>
               <Grid item xs={3}>
-              <button className="circle6" onClick={() => selectDropdownItem('design-dropdown', 'ff6600')} style={{cursor:'pointer'}}> </button>
+              <button className="circle6" onClick={() => selectDropdownItem('design-dropdown', '#FF6600')} style={{cursor:'pointer'}}> </button>
               </Grid>
               <Grid item xs={3}>
-              <button className="circle7" onClick={() => selectDropdownItem('design-dropdown', '993399')} style={{cursor:'pointer'}}> </button>
+              <button className="circle7" onClick={() => selectDropdownItem('design-dropdown', '#993399')} style={{cursor:'pointer'}}> </button>
               </Grid>
             </Grid>
             <br /><br /><br />
             
-            <select id="design-dropdown" value={color} onChange={(e) => setColor(e.target.value)} style={{display:'none'}}>
-              <option>Select Color.</option>
-              <option value="F9DEC9">F9DEC9</option>
-              <option value="37E2D5">37E2D5</option>
-              <option value="ffff99">ffff99</option>
-              <option value="cc0066">cc0066</option>
-              <option value="0099ff">0099ff</option>
-              <option value="ff99cc">ff99cc</option>
-              <option value="ff6600">ff6600</option>
-              <option value="993399">993399</option>
-            </select>
+          
   
             <br /><br /><br />
             <Link to="/">
