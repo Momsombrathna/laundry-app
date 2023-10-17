@@ -10,6 +10,7 @@ import BarcodeScanner from './BarcodeScanner';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setType } from '../redux/slices/appSlice';
+import ShowRecorde from './ShowRecorde';
 
   const drawerWidth = 240;
 
@@ -45,6 +46,8 @@ import { setType } from '../redux/slices/appSlice';
               <List>
   
                 <BarcodeScanner />
+                <br /><br /><br />
+                <ShowRecorde />
   
               </List>
   
