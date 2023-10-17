@@ -56,7 +56,7 @@ import { setType } from '../redux/slices/appSlice';
   
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
   
-            <Grid container spacing={4}>
+            <Grid container spacing={2}>
               <Grid item xs={4}>
                   <button className="container" onClick={() => selectDropdownItem('design-dropdown', 'T-shirt')} style={{cursor:'pointer'}}>
                     <img width="96" height="96" src="https://img.icons8.com/fluency/96/polo-shirt.png" alt="polo-shirt"  
@@ -112,12 +112,16 @@ import { setType } from '../redux/slices/appSlice';
                 </button>
               </Grid>
             </Grid>
+
+            <br /><br />
   
-            <Link to="/color">
-            <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />} size="large" disableElevation disabled={!type}>
-              Next
+            
+            <Button container spacing={8} variant="contained" size="large" disableElevation disabled={!type}>
+            <Link to="/color" style={{ color: 'white'}}>
+              NEXT
+              </Link>
             </Button>
-            </Link>
+            
   
           </Box>
   

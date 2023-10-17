@@ -116,20 +116,22 @@ const Brand = () => {
             </Grid>
           </Grid>
           
-            <br /><br /><br />
+            <br /><br />
             <Link to="/color">
-            <Button container spacing={8} variant="outlined" size="meduim" disableElevation startIcon={<ArrowBackIcon />}>
+            <Button container spacing={8} variant="outlined" size="meduim" disableElevation >
               BACK
             </Button>
             </Link>
 
             &nbsp;&nbsp;
   
-            <Link to="/note">
-            <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />} size="meduim" disableElevation disabled={!brand}>
+            
+            <Button container spacing={8} variant="contained"  size="meduim" disableElevation disabled={!brand}>
+            <Link to="/note" style={{ color: 'white'}}>
               Next
+              </Link>
             </Button>
-            </Link>
+            
   
           </Box>
   

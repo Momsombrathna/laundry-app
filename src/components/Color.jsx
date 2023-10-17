@@ -80,20 +80,22 @@ const Color = () => {
               </Grid>
             </Grid>          
   
-            <br /><br /><br />
+            <br /><br />
             <Link to="/">
-            <Button container spacing={8} variant="outlined" size="meduim" disableElevation startIcon={<ArrowBackIcon />} >
+            <Button container spacing={8} variant="outlined" size="meduim" disableElevation  >
               BACk
             </Button>
             </Link>
 
             &nbsp;&nbsp;            
   
-            <Link to="/brand">
-            <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />} size="meduim" disableElevation disabled={!color}>
+            
+            <Button container spacing={8} variant="contained"  size="meduim" disableElevation disabled={!color}>
+            <Link to="/brand" style={{ color: 'white'}}>
               NEXT
+              </Link>
             </Button>
-            </Link>
+            
   
           </Box>
   
