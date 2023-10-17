@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setType } from '../redux/slices/appSlice';
+import { setBarcode, setType } from '../redux/slices/appSlice';
 
   const drawerWidth = 240;
 
@@ -116,7 +116,7 @@ import { setType } from '../redux/slices/appSlice';
             <br /><br />
   
             
-            <Button container spacing={8} variant="contained" size="large" disableElevation disabled={!type}>
+            <Button container spacing={8} variant="contained" size="large" disableElevation disabled={!type || !barcode}>
             <Link to="/color" style={{ color: 'white'}}>
               NEXT
               </Link>
