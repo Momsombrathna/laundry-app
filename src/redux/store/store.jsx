@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import barcodeSliceReducer from '../slices/barcodeSlice'
+import appSliceReducer from '../slices/appSlice'
 
 export const store = configureStore({
   reducer: {
-      barcodeScanner: barcodeSliceReducer,
+    sliceItems: appSliceReducer,
   },
   devTools:true
 })

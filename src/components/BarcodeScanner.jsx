@@ -1,14 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import useScanDetection from "use-scan-detection";
-import {setBarcode} from "../redux/slices/barcodeSlice";
+import {setBarcode} from "../redux/slices/appSlice";
 
 const BarcodeScanner = () => {
-  //const [barCodeScan, setBarCodeScan] = useState("No Barcode Scanned");
   
-
   const dispatch = useDispatch();
   const barcode = useSelector(
-    (state) => state.barcodeScanner.barcode,
+    (state) => state.sliceItems.barcode,
   );
 
   useScanDetection({

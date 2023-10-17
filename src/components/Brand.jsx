@@ -11,13 +11,13 @@ import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useDispatch, useSelector } from 'react-redux';
-import { setBrand } from '../redux/slices/barcodeSlice';
+import { setBrand } from '../redux/slices/appSlice';
 const drawerWidth = 240;
 
 const Brand = () => {
     const dispatch = useDispatch();
     const brand = useSelector(
-      (state) => state.barcodeScanner.brand,
+      (state) => state.sliceItems.brand,
     );
 
     const selectDropdownItem = (id, val) => {
@@ -115,19 +115,7 @@ const Brand = () => {
               </button>
             </Grid>
           </Grid>
-          <br /><br /><br />
-            
-            <select id="design-dropdown" value={brand} onChange={(e) => setBrand(e.target.value)} style={{display:'none'}}>
-              <option>Select Brands</option>
-              <option value="Adidas">Adidas</option>
-              <option value="Levis">Levis</option>
-              <option value="Calvin klein">Calvin klein</option>
-              <option value="Gucci">Gucci</option>
-              <option value="Guess">Guess</option>
-              <option value="Lacoste">Lacoste</option>
-            </select>
-
-  
+          
             <br /><br /><br />
             <Link to="/color">
             <Button container spacing={8} variant="outlined" size="meduim" disableElevation startIcon={<ArrowBackIcon />}>
