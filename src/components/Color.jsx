@@ -2,14 +2,14 @@
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+//import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+//import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useDispatch, useSelector } from 'react-redux';
 import { setColor } from '../redux/slices/appSlice';
 const drawerWidth = 240;
@@ -17,9 +17,9 @@ const drawerWidth = 240;
 const Color = () => {
 
   const dispatch = useDispatch();
-  const color = useSelector(
-    (state) => state.sliceItems.color,
-  );
+  const state = useSelector((state) => state);
+  const barcode = state.sliceItems.barcode;
+  const color = state.sliceItems.color;
 
   const selectDropdownItem = (id, val) => {
     dispatch(setColor(val));
@@ -90,7 +90,7 @@ const Color = () => {
             &nbsp;&nbsp;            
   
             
-            <Button container spacing={8} variant="contained"  size="meduim" disableElevation disabled={!color}>
+            <Button container spacing={8} variant="contained"  size="meduim" disableElevation disabled={!color || !barcode}>
             <Link to="/brand" style={{ color: 'white'}}>
               NEXT
               </Link>

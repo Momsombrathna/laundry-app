@@ -2,23 +2,23 @@
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+//import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+//import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useDispatch, useSelector } from 'react-redux';
 import { setBrand } from '../redux/slices/appSlice';
 const drawerWidth = 240;
 
 const Brand = () => {
     const dispatch = useDispatch();
-    const brand = useSelector(
-      (state) => state.sliceItems.brand,
-    );
+    const state = useSelector((state) => state);
+    const barcode = state.sliceItems.barcode;
+    const brand = state.sliceItems.brand;
 
     const selectDropdownItem = (id, val) => {
       dispatch(setBrand(val));
@@ -126,7 +126,7 @@ const Brand = () => {
             &nbsp;&nbsp;
   
             
-            <Button container spacing={8} variant="contained"  size="meduim" disableElevation disabled={!brand}>
+            <Button container spacing={8} variant="contained"  size="meduim" disableElevation disabled={!brand || !barcode}>
             <Link to="/note" style={{ color: 'white'}}>
               Next
               </Link>

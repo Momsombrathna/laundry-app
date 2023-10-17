@@ -2,14 +2,14 @@
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+//import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setBarcode, setType } from '../redux/slices/appSlice';
+import { setType } from '../redux/slices/appSlice';
 
   const drawerWidth = 240;
 
@@ -19,9 +19,6 @@ import { setBarcode, setType } from '../redux/slices/appSlice';
     const state = useSelector((state) => state);
     const barcode = state.sliceItems.barcode;
     const type = state.sliceItems.type;
-    // const type = useSelector(
-    //   (state) => state.sliceItems.type,
-    // );
 
     const selectDropdownItem = (id, val) => {
         dispatch(setType(val));
