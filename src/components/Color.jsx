@@ -11,14 +11,14 @@ import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useDispatch, useSelector } from 'react-redux';
-import { setColor } from '../redux/slices/barcodeSlice';
+import { setColor } from '../redux/slices/appSlice';
 const drawerWidth = 240;
 
 const Color = () => {
 
   const dispatch = useDispatch();
   const color = useSelector(
-    (state) => state.barcodeScanner.color,
+    (state) => state.sliceItems.color,
   );
 
   const selectDropdownItem = (id, val) => {
@@ -78,20 +78,7 @@ const Color = () => {
               <Grid item xs={3}>
               <button className="circle7" onClick={() => selectDropdownItem('design-dropdown', '993399')} style={{cursor:'pointer'}}> </button>
               </Grid>
-            </Grid>
-            <br /><br /><br />
-            
-            <select id="design-dropdown" value={color} onChange={(e) => setColor(e.target.value)} style={{display:'none'}}>
-              <option>Select Color.</option>
-              <option value="F9DEC9">F9DEC9</option>
-              <option value="37E2D5">37E2D5</option>
-              <option value="ffff99">ffff99</option>
-              <option value="cc0066">cc0066</option>
-              <option value="0099ff">0099ff</option>
-              <option value="ff99cc">ff99cc</option>
-              <option value="ff6600">ff6600</option>
-              <option value="993399">993399</option>
-            </select>
+            </Grid>          
   
             <br /><br /><br />
             <Link to="/">

@@ -9,16 +9,19 @@ import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setType } from '../redux/slices/barcodeSlice';
+import { setType } from '../redux/slices/appSlice';
 
   const drawerWidth = 240;
 
   const Home = () => {
     
     const dispatch = useDispatch();
-    const type = useSelector(
-      (state) => state.barcodeScanner.type,
-    );
+    const state = useSelector((state) => state);
+    const barcode = state.sliceItems.barcode;
+    const type = state.sliceItems.type;
+    // const type = useSelector(
+    //   (state) => state.sliceItems.type,
+    // );
 
     const selectDropdownItem = (id, val) => {
         dispatch(setType(val));
@@ -110,19 +113,6 @@ import { setType } from '../redux/slices/barcodeSlice';
               </Grid>
             </Grid>
   
-            <br /><br /><br />
-            
-            <select id="design-dropdown" value={type} onChange={(e) => setType(e.target.value)} style={{display:'none'}}>
-              <option>Select here or click a pattern above.</option>
-              <option value="T-shirt">T-shirt</option>
-              <option value="Shirt">Shirt</option>
-              <option value="Jeans">Jeans</option>
-              <option value="Demin">Demin</option>
-              <option value="Shorts">Shorts</option>
-              <option value="Suit">Suit</option>
-            </select>
-  
-          
             <Link to="/color">
             <Button container spacing={8} variant="contained" size="large" disableElevation disabled={!type}>
               Next

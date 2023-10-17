@@ -5,9 +5,10 @@ const initialState = {
     type: '',
     color: '',
     brand: '',
+    note: '',
 }
-const barcodeSlice = createSlice({
-    name: 'barcodeScanner',
+const appSlice = createSlice({
+    name: 'sliceItems',
     initialState,
     reducers: {
         setBarcode: (state, action) =>{
@@ -25,8 +26,12 @@ const barcodeSlice = createSlice({
         setBrand: (state, action) =>{
             state.brand = action.payload
         },
+
+        setNote: (state, action) =>{
+            state.note = action.payload
+        },
     }
 }) 
 
-export const {setBarcode, setType, setColor, setBrand} = barcodeSlice.actions;
-export default barcodeSlice.reducer;
+export const {setBarcode, setType, setColor, setBrand, setNote} = appSlice.actions;
+export default appSlice.reducer;

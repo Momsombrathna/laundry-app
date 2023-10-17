@@ -11,8 +11,8 @@ import Button from '@mui/material/Button';
 import BarcodeScanner from './BarcodeScanner';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setNote } from '../redux/slices/appSlice';
 
 const idb =
     window.indexedDB ||
@@ -47,24 +47,14 @@ const createCollectionsIndexedDB = () => {
 const drawerWidth = 240;
 
 const Note = () => {
+  const dispatch = useDispatch();
 
-  const barcode = useSelector(
-    (state) => state.barcodeScanner.barcode,
-  );
-
-  const type = useSelector(
-    (state) => state.barcodeScanner.type,
-  );
-
-  const color = useSelector(
-    (state) => state.barcodeScanner.color,
-  );
-
-  const brand = useSelector(
-    (state) => state.barcodeScanner.brand,
-  );
-
-  const [note, setNote] = useState(''); 
+  const state = useSelector((state) => state);
+  const barcode = state.sliceItems.barcode;
+  const type = state.sliceItems.type;
+  const color = state.sliceItems.color;
+  const brand = state.sliceItems.brand;
+  const note = state.sliceItems.note;
 
   useEffect(()=>{
     createCollectionsIndexedDB();
@@ -126,7 +116,7 @@ const Note = () => {
 
   
             <textarea name="" style={{backgroundColor: 'white', color: 'black', width: '500px'}} id="" cols="30" rows="10"
-                onChange={(e) => setNote(e.target.value)}>{note}</textarea>
+                onChange={(e) =>dispatch(setNote(e.target.value))}>{note}</textarea>
 
   
             <br /><br /><br />
