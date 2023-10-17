@@ -2,7 +2,7 @@
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import Toolbar from '@mui/material/Toolbar';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
@@ -17,7 +17,7 @@ import { setType } from '../redux/slices/appSlice';
     
     const dispatch = useDispatch();
     const state = useSelector((state) => state);
-    const barcode = state.sliceItems.barcode;
+    //const barcode = state.sliceItems.barcode;
     const type = state.sliceItems.type;
     // const type = useSelector(
     //   (state) => state.sliceItems.type,
