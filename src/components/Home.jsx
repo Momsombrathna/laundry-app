@@ -42,7 +42,7 @@ import { setType } from '../redux/slices/appSlice';
               [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box', backgroundColor: 'gray' },
             }}
           >
-            <Toolbar />
+            
             <Box sx={{ overflow: 'auto' }}>
   
               <List>
@@ -114,7 +114,7 @@ import { setType } from '../redux/slices/appSlice';
             </Grid>
   
             <Link to="/color">
-            <Button container spacing={8} variant="contained" size="large" disableElevation disabled={!type}>
+            <Button container spacing={8} variant="contained" endIcon={<ArrowForwardIcon />} size="large" disableElevation disabled={!type}>
               Next
             </Button>
             </Link>
