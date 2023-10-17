@@ -1,18 +1,23 @@
 import React from 'react';
+import Button from '@mui/material/Button';
 
 
 const ShowRecorde = () => {
     return (
-        <div>
+        <>
            <textarea name="" 
            style={{backgroundColor: 'LightGray', 
-           color: 'black', height: '500px', width: '230px',
+           color: 'black', height: '350px', width: '230px',
+           padding: '10px',
            border: 'none', outline: 'none',}} 
            id="">
-
-
            </textarea>
-        </div>
+
+           <br /><br />
+
+           <Button variant="contained">Submit</Button>
+
+        </>
     );
 };
 

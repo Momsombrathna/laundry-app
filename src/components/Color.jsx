@@ -4,6 +4,7 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 //import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
+import ShowRecorde from './ShowRecorde';
 
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
@@ -12,6 +13,7 @@ import BarcodeScanner from './BarcodeScanner';
 //import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useDispatch, useSelector } from 'react-redux';
 import { setColor } from '../redux/slices/appSlice';
+
 const drawerWidth = 240;
 
 const Color = () => {
@@ -24,6 +26,8 @@ const Color = () => {
   const selectDropdownItem = (id, val) => {
     dispatch(setColor(val));
   };
+
+  
 
     return (
       <>
@@ -45,6 +49,8 @@ const Color = () => {
               <List>
   
                 <BarcodeScanner />
+                <br />
+                <ShowRecorde />
   
               </List>
   

@@ -46,7 +46,7 @@ import ShowRecorde from './ShowRecorde';
               <List>
   
                 <BarcodeScanner />
-                <br /><br /><br />
+                <br />
                 <ShowRecorde />
   
               </List>

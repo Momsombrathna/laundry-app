@@ -12,6 +12,7 @@ import BarcodeScanner from './BarcodeScanner';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setNote } from '../redux/slices/appSlice';
+import ShowRecorde from './ShowRecorde';
 
 const idb =
     window.indexedDB ||
@@ -104,6 +105,8 @@ const Note = () => {
               <List>
   
                 <BarcodeScanner />
+                <br />
+                <ShowRecorde />
   
               </List>
   
@@ -121,8 +124,8 @@ const Note = () => {
   
             <br /><br /><br />
             <Link to="/brand">
-            <Button container spacing={8} variant="outlined" size="meduim" disableElevation startIcon={<ArrowBackIcon />} >
-              BACk
+            <Button container spacing={8} variant="outlined" size="meduim" disableElevation >
+              BACK
             </Button>
             </Link>
 
@@ -130,7 +133,7 @@ const Note = () => {
   
             <Link to="/">
             <Button container spacing={8} variant="contained"  size="meduim" disableElevation onClick={handleSubmit}>
-              Submit
+              save
             </Button>
             </Link>
   
