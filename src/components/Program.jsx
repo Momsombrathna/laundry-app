@@ -48,9 +48,27 @@ const Program = () => {
     
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
     
+            <div class="title">
+                <h1>Program</h1>
+            </div>
             
+            <section>
             
+            <div class="md-chips">
+    
+            <input type="checkbox" onClick="toggle(this)" id="myCheckbox" />
+            <label for="myCheckbox" class="md-chip md-chip-clickable md-chip-hover"> Toggle All</label>
 
+            <input type="checkbox" name="foo" value="bar2" id="1"/> 
+            <label for="1" class="md-chip md-chip-clickable md-chip-hover"> Bar 1</label>
+            <input type="checkbox" name="foo" value="bar2" id="2"/> 
+            <label for="2" class="md-chip md-chip-clickable md-chip-hover"> Bar 2</label>
+            <input type="checkbox" name="foo" value="bar2" id="3"/> 
+            <label for="3" class="md-chip md-chip-clickable md-chip-hover"> Bar 3</label>
+                    
+            </div>
+            
+            </section>
 
 
 
