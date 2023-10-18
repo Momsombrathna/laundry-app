@@ -76,7 +76,7 @@ const fetchDataFromIndexedDB = () => {
 
 
            <List style={{backgroundColor: 'LightGray', 
-                color: 'black', height: '350px', width: '230px',
+                color: 'black', height: '320px', width: '230px',
                 padding: '5px',
                 margin: 'auto',
                 border: 'none',
