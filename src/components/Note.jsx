@@ -73,6 +73,7 @@ const Note = () => {
             const items = customerData.put({id:barcode,type,color,brand,note});
             items.onsuccess = () => {
                 tx.oncomplete = function () {
+                    window.location.reload();
                     toast.success('Items added successfully');
                     db.close();
                 };
