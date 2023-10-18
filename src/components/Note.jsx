@@ -4,6 +4,7 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import List from '@mui/material/List';
 //import Grid from '@mui/material/Grid';
@@ -12,6 +13,7 @@ import BarcodeScanner from './BarcodeScanner';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setNote } from '../redux/slices/appSlice';
+import ShowRecorde from './ShowRecorde';
 
 const idb =
     window.indexedDB ||
@@ -71,7 +73,7 @@ const Note = () => {
             const items = customerData.put({id:barcode,type,color,brand,note});
             items.onsuccess = () => {
                 tx.oncomplete = function () {
-                    window.location.reload();
+                    toast.success('Items added successfully');
                     db.close();
                 };
             }
@@ -104,6 +106,8 @@ const Note = () => {
               <List>
   
                 <BarcodeScanner />
+                <br />
+                <ShowRecorde />
   
               </List>
   
@@ -121,8 +125,8 @@ const Note = () => {
   
             <br /><br /><br />
             <Link to="/brand">
-            <Button container spacing={8} variant="outlined" size="meduim" disableElevation startIcon={<ArrowBackIcon />} >
-              BACk
+            <Button container spacing={8} variant="outlined" size="meduim" disableElevation >
+              BACK
             </Button>
             </Link>
 
@@ -130,7 +134,7 @@ const Note = () => {
   
             <Link to="/">
             <Button container spacing={8} variant="contained"  size="meduim" disableElevation onClick={handleSubmit}>
-              Submit
+              save
             </Button>
             </Link>
   

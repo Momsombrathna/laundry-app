@@ -4,6 +4,7 @@ import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 //import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
+import ShowRecorde from './ShowRecorde';
 
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
@@ -44,6 +45,8 @@ const Brand = () => {
               <List>
   
                 <BarcodeScanner />
+                <br /><br />
+                <ShowRecorde />
   
               </List>
   

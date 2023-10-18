@@ -7,12 +7,22 @@ import Home from './components/Home'
 import Color from './components/Color'
 import Brand from './components/Brand'
 import Note from './components/Note'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+      <ToastContainer theme='colored' 
+        limit={2} 
+        autoClose={1000} 
+        pauseOnHover
+        draggable={false}
+        pauseOnFocusLoss={false}>
+      </ToastContainer>
+
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
