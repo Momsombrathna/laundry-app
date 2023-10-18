@@ -1,10 +1,12 @@
-//import React from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import ClearIcon from '@mui/icons-material/Clear';
+import IconButton from '@mui/material/IconButton';
 
 //Get Data
 const fetchDataFromIndexedDB = () => {
@@ -46,18 +48,28 @@ const fetchDataFromIndexedDB = () => {
     });
 }
 
-const ShowRecorde = () => {
-    const [data, setData] = useState([]);
+    const ShowRecorde = () => {
+        const [data, setData] = useState([]);
 
-    useEffect(()=>{
-      fetchDataFromIndexedDB()
-        .then((data) => {
-            setData(data);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    }, []);
+        useEffect(()=>{
+        fetchDataFromIndexedDB()
+            .then((data) => {
+                setData(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        }, []);
+
+    const [hovered, setHovered] = React.useState(false);
+
+    const handleMouseEnter = () => {
+      setHovered(true);
+    };
+  
+    const handleMouseLeave = () => {
+      setHovered(false);
+    };
 
     return (
         <>
@@ -76,8 +88,21 @@ const ShowRecorde = () => {
                 <ListItem sx={{ padding: '4px 16px', 
                     border: '1px solid gray', 
                     borderRadius: '5px', 
-                    marginTop: '2px'}} key={item.id}>
+                    marginTop: '2px'}}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave} 
+                    key={item.id}>
                     <ListItemText  primary={item.id} />
+                   
+                        
+
+                        <IconButton
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                            color={hovered ? 'primary' : 'inherit'}
+                            >
+                            <ClearIcon />
+                        </IconButton>
                     
                 </ListItem>
                 )}
