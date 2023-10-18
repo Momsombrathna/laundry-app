@@ -120,7 +120,7 @@ const Brand = () => {
           </Grid>
           
             <br /><br />
-            <Link to="/brand">
+            <Link to="/">
             <Button container spacing={8} variant="outlined" size="meduim" disableElevation >
               BACK
             </Button>
