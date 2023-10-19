@@ -82,17 +82,17 @@ const fetchDataFromIndexedDB = () => {
                 sx={{ padding: 0 }}>
 
                 {data.map((item) =>
-                    <div>
-                        <SwipeToDelete  key={item.id}>
+                    <div >
+                        <SwipeToDelete class="line"  key={item.id}>
                         <div style={{ 
                             backgroundColor: 'white',
                             color: 'black',
                             height: 'full',
                             borderColor: 'black',
-                            border: 'none',
                             outline: 'none',
-                            overflow: 'auto'
-                            
+                            overflow: 'auto',
+                            borderStyle: 'dotted',
+                            borderWidth: '1px',
                         }}>
                             <a className="list-group-item">
                                 <h4 className="list-group-item-heading">{item.date}</h4>
@@ -101,9 +101,10 @@ const fetchDataFromIndexedDB = () => {
                                     color: 'black',
                                 }} className="list-group-item-text">{item.id}</p>
                             </a>
+                            
                         </div>
+                        
                         </SwipeToDelete>
-                        <hr />
                     </div>
                 )}
               
