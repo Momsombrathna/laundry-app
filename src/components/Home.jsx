@@ -117,7 +117,7 @@ import ShowRecorde from './ShowRecorde';
   
             
             <Button container spacing={8} variant="contained" size="large" disableElevation disabled={!type || !barcode}>
-            <Link to="/color" style={{ color: 'white'}}>
+            <Link to="/brand" style={{ color: 'white'}}>
               NEXT
               </Link>
             </Button>

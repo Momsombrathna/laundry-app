@@ -59,8 +59,8 @@ const Brand = () => {
             <Grid item xs={4}>
               <button className="container" onClick={() => selectDropdownItem('design-dropdown', 'Adidas')} style={{cursor:'pointer'}}>
                 <img width="100" height="100" 
-                src="https://d3sxshmncs10te.cloudfront.net/icon/free/svg/202714.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTY5NzU4NzIwMCwicSI6bnVsbCwiaWF0IjoxNjk3MzgxODQ3fQ__.afffdfb4213d931ace7406817d5053992d79531b07f5806c81e21194bb464386"
-                alt="polo-shirt" />
+                src="https://dl.dropboxusercontent.com/scl/fi/xi244oma2efieq7yyvt2l/pngwing.com.png?rlkey=x0tvhm0399f9xywd3dfrtnw07&dl=0"
+                alt="Adidas" />
                 <div className="overlay">
       
                 </div>
@@ -70,7 +70,7 @@ const Brand = () => {
             <Grid item xs={4}>
               <button className="container" onClick={() => selectDropdownItem('design-dropdown', 'Levis')} style={{cursor:'pointer'}}>
                 <img width="100" height="100" 
-                src="https://d3sxshmncs10te.cloudfront.net/icon/free/svg/202644.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTY5NzU4NzIwMCwicSI6bnVsbCwiaWF0IjoxNjk3MzgxODQ3fQ__.56ec4dfe9b09ac10b8f507b5ffce94f484562809c22be59e98a047fc8c5f7d5e" 
+                src="https://dl.dropboxusercontent.com/scl/fi/womla9yfcu45dgbobrmhu/pngwing.com-1.png?rlkey=vkygdh0vzm6cr0ww1hfof448t&dl=0" 
                 alt="Levi's" style={{ cursor: 'pointer' }} />
                 <div className="overlay">
       
@@ -80,7 +80,7 @@ const Brand = () => {
             <Grid item xs={4}>
               <button className="container" onClick={() => selectDropdownItem('design-dropdown', 'Calvin klein')} style={{cursor:'pointer'}}>
                 <img width="100" height="100" 
-                src="https://d3sxshmncs10te.cloudfront.net/icon/free/svg/202551.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTY5NzU4NzIwMCwicSI6bnVsbCwiaWF0IjoxNjk3MzgxODQ3fQ__.060294b56abed9e3baa76e6d85778f432e4d9dd19379f2e446ed4bc032e1bbce" 
+                src="https://dl.dropboxusercontent.com/scl/fi/1ixwjhvb4rv4u2i9d89ga/pngwing.com-2.png?rlkey=tsk3ub7nm45h8vyhlh9fhp8rt&dl=0" 
                 alt="Calvin klein" />
                 <div className="overlay">
                   
@@ -90,7 +90,7 @@ const Brand = () => {
             <Grid item xs={4}>
               <button className="container" onClick={() => selectDropdownItem('design-dropdown', 'Gucci')} style={{cursor:'pointer'}}>
                 <img width="100" height="100" 
-                src="https://d3sxshmncs10te.cloudfront.net/icon/free/svg/202607.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTY5NzU4NzIwMCwicSI6bnVsbCwiaWF0IjoxNjk3MzgxODQ4fQ__.b38b05790e6c8e7d786170b9d8c8e3dae8552b228ace1273496451d217e8dfc8" 
+                src="https://dl.dropboxusercontent.com/scl/fi/tyb7xsc0mlu2whfvjdiya/pngwing.com-3.png?rlkey=l6k0i2vfwwy3mn9o2bbcrsafs&dl=0" 
                 alt="Gucci" />
                 <div className="overlay">
                   
@@ -100,7 +100,7 @@ const Brand = () => {
             <Grid item xs={4}>
               <button className="container" onClick={() => selectDropdownItem('design-dropdown', 'Guess')} style={{cursor:'pointer'}}>
                 <img width="100" height="100" 
-                src="https://d3sxshmncs10te.cloudfront.net/icon/free/svg/202627.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTY5NzU4NzIwMCwicSI6bnVsbCwiaWF0IjoxNjk3MzgxODQ4fQ__.f1a11c9832a2d29c2dae1adc692497e76c0cc5ff9e7681757e7662bd747a6f6f" 
+                src="https://dl.dropboxusercontent.com/scl/fi/44b18a59aneexy5nj72cm/pngwing.com-4.png?rlkey=syzg8m9982d2pbpa8bfdn1qiw&dl=0" 
                 alt="Guess" />
                 <div className="overlay">
               
@@ -109,8 +109,8 @@ const Brand = () => {
             </Grid>
             <Grid item xs={4}>
               <button className="container" onClick={() => selectDropdownItem('design-dropdown', 'Lacoste')} style={{cursor:'pointer'}}>
-                <img width="100" height="100" 
-                src="https://d3sxshmncs10te.cloudfront.net/icon/free/svg/202631.svg?token=eyJhbGciOiJoczI1NiIsImtpZCI6ImRlZmF1bHQifQ__.eyJpc3MiOiJkM3N4c2htbmNzMTB0ZS5jbG91ZGZyb250Lm5ldCIsImV4cCI6MTY5NzU4NzIwMCwicSI6bnVsbCwiaWF0IjoxNjk3MzgxODQ4fQ__.5fcd66d0399565ac6cd000f2ece53942a01e13d408eabaa7a2ba9df04dc8d267" 
+                <img width="120" height="100" 
+                src="https://dl.dropboxusercontent.com/scl/fi/gumqhj6akh0h490zicddi/pngwing.com-5.png?rlkey=22qltrq3ibamyoy7iufswrekv&dl=0" 
                 alt="Lacoste" />
                 <div className="overlay">
                   
@@ -120,7 +120,7 @@ const Brand = () => {
           </Grid>
           
             <br /><br />
-            <Link to="/color">
+            <Link to="/">
             <Button container spacing={8} variant="outlined" size="meduim" disableElevation >
               BACK
             </Button>
@@ -130,7 +130,7 @@ const Brand = () => {
   
             
             <Button container spacing={8} variant="contained"  size="meduim" disableElevation disabled={!brand || !barcode}>
-            <Link to="/note" style={{ color: 'white'}}>
+            <Link to="/color" style={{ color: 'white'}}>
               Next
               </Link>
             </Button>

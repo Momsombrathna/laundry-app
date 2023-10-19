@@ -105,8 +105,8 @@ import { deleteItems } from '../redux/slices/dataSlice';
         <>
 
 
-           <List style={{backgroundColor: 'LightGray', 
-                color: 'black', height: '350px', width: '230px',
+           <List style={{backgroundColor: 'white', 
+                color: 'black', height: '300px', width: '230px',
                 padding: '5px',
                 margin: 'auto',
                 border: 'none',
