@@ -5,8 +5,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import ClearIcon from '@mui/icons-material/Clear';
-import IconButton from '@mui/material/IconButton';
+import { render } from 'react-dom';
+// Import the react-swipe-to-delete-component
+import SwipeToDelete from 'react-swipe-to-delete-component';
+// Import styles of the react-swipe-to-delete-component
+import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
+
 
 //Get Data
 const fetchDataFromIndexedDB = () => {
@@ -61,21 +65,13 @@ const fetchDataFromIndexedDB = () => {
             });
         }, []);
 
-    const [hovered, setHovered] = React.useState(false);
 
-    const handleMouseEnter = () => {
-      setHovered(true);
-    };
-  
-    const handleMouseLeave = () => {
-      setHovered(false);
-    };
 
     return (
         <>
 
 
-           <List style={{backgroundColor: 'LightGray', 
+           <List style={{backgroundColor: 'white', 
                 color: 'black', height: '300px', width: '230px',
                 padding: '5px',
                 margin: 'auto',
@@ -84,33 +80,33 @@ const fetchDataFromIndexedDB = () => {
                 borderRadius: '5px',
                 overflow: 'auto'}}
                 sx={{ padding: 0 }}>
-                 {data.map((item) =>
-                <ListItem sx={{ padding: '4px 16px', 
-                    border: '1px solid gray', 
-                    borderRadius: '5px', 
-                    marginTop: '2px'}}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave} 
-                    key={item.id}>
-                    <ListItemText  primary={item.id} />
 
-                        <IconButton
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                            color={hovered ? 'primary' : 'inherit'}
-                            >
-                            <ClearIcon />
-                        </IconButton>
-                    
-                </ListItem>
+                {data.map((item) =>
+                    <div>
+                        <SwipeToDelete  key={item.id}>
+                        <div style={{ 
+                            backgroundColor: 'white',
+                            color: 'black',
+                            height: 'full',
+                            borderColor: 'black',
+                            border: 'none',
+                            outline: 'none',
+                            overflow: 'auto'
+                            
+                        }}>
+                            <a className="list-group-item">
+                                <h4 className="list-group-item-heading">{item.date}</h4>
+                                <p style={{
+                                    fontSize: '15px',
+                                    color: 'black',
+                                }} className="list-group-item-text">{item.id}</p>
+                            </a>
+                        </div>
+                        </SwipeToDelete>
+                        <hr />
+                    </div>
                 )}
-                {/* <ListItem sx={{ padding: '4px 16px', 
-                    border: '1px solid gray', 
-                    borderRadius: '5px', 
-                    marginTop: '2px'}}>
-                    <ListItemText primary="0757836764" />
-                </ListItem>
-                */}
+              
                 
             </List>
 
