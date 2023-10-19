@@ -87,7 +87,7 @@ const Color = () => {
             </Grid>          
   
             <br /><br />
-            <Link to="/">
+            <Link to="/brand">
             <Button container spacing={8} variant="outlined" size="meduim" disableElevation  >
               BACk
             </Button>
@@ -97,7 +97,7 @@ const Color = () => {
   
             
             <Button container spacing={8} variant="contained"  size="meduim" disableElevation disabled={!color || !barcode}>
-            <Link to="/brand" style={{ color: 'white'}}>
+            <Link to="/program" style={{ color: 'white'}}>
               NEXT
               </Link>
             </Button>

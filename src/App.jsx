@@ -7,6 +7,7 @@ import Home from './components/Home'
 import Color from './components/Color'
 import Brand from './components/Brand'
 import Note from './components/Note'
+import Program from './components/Program'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/color" element={<Color />} />
           <Route path="/brand" element={<Brand />} />
           <Route path="/note" element={<Note />} />
+          <Route path="/program" element={<Program />} />
         </Routes>
       </Router>
     </>

@@ -2,7 +2,6 @@
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -73,6 +72,7 @@ const Note = () => {
             const items = customerData.put({id:barcode,type,color,brand,note});
             items.onsuccess = () => {
                 tx.oncomplete = function () {
+                    window.location.reload();
                     toast.success('Items added successfully');
                     db.close();
                 };
@@ -117,8 +117,6 @@ const Note = () => {
           <h2>Note</h2>
   
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-
-  
             <textarea name="" style={{backgroundColor: 'white', color: 'black', width: '500px'}} id="" cols="30" rows="10"
                 onChange={(e) =>dispatch(setNote(e.target.value))}>{note}</textarea>
 
@@ -139,7 +137,6 @@ const Note = () => {
             </Link>
   
           </Box>
-  
         </Box>
 
   
