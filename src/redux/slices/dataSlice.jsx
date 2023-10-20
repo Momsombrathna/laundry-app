@@ -1,4 +1,3 @@
-8846002481704
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
