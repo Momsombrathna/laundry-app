@@ -15,37 +15,42 @@ const dataSlice = createSlice({
     initialState,
 
     reducers: {
-    
+        
         addItem(state, action) {
-          state.dataItems.push({
-            barcode: action.payload.barcode,
-            type: action.payload.type,
-            color: action.payload.color,
-            brand: action.payload.brand,
-            note: action.payload.note,
-          });
-           
+          const existingItem = state.dataItems.find((item) => item.action.payload.barcode === action.payload.barcode);
+          
+          if (!existingItem) {
+            state.dataItems.push({
+              barcode: action.payload.barcode,
+              type: action.payload.type,
+              color: action.payload.color,
+              brand: action.payload.brand,
+              note: action.payload.note,
+            });
+          }
+         
           setItemFunc(
             state.dataItems.map((item) => item),
           );
         },
 
         deleteItems(state, action) {  
-            const id = action.payload;          
-            const existingItem = state.dataItems.find((item) => item.id === id);
-            if (existingItem) {
-              state.dataItems = state.dataItems.filter((item) => item.id !== id);
-            }
+            // const id = action.payload;          
+            // const existingItem = state.dataItems.find((item) => item.id === id);
+            // if (existingItem) {
+            //   state.dataItems = state.dataItems.filter((item) => item.id !== id);
+            // }
             
-            setItemFunc(
-              state.dataItems.map((item) => item),
-            );
+            // setItemFunc(
+            //   state.dataItems.map((item) => item),
+            // );
+
+            const existingItem = state.dataItems.find((item) => item.action.payload.barcode === action.payload.barcode);
+            if (existingItem) {
+              state.dataItems = state.dataItems.filter((item) => item.action.payload.barcode !== action.payload.barcode);
+            }
         }
 
-        // setDataItems(state, action){
-        //     state.dataItems = action.payload;
-        // }
-  
       },
 });
 
