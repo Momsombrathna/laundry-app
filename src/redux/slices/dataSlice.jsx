@@ -29,26 +29,6 @@ const dataSlice = createSlice({
          
         },
 
-        // deleteItems(state, action) { 
-        //    var copy = [...state.dataItems];
-
-          
-        //     // // const id = action.payload;          
-        //     // // const existingItem = state.dataItems.find((item) => item.id === id);
-        //     // // if (existingItem) {
-        //     // //   state.dataItems = state.dataItems.filter((item) => item.id !== id);
-        //     // // }
-            
-        //     // // setItemFunc(
-        //     // //   state.dataItems.map((item) => item),
-        //     // // );
-
-        //     // const existingItem = state.dataItems.find((item) => item.action.payload.barcode === action.payload.barcode);
-        //     // if (existingItem) {
-        //     //   state.dataItems = state.dataItems.filter((item) => item.action.payload.barcode !== action.payload.barcode);
-        //     // }
-        // }
-
         deleteItems(state, action) {
           const itemIDs = action.payload;
         
