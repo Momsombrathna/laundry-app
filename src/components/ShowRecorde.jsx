@@ -64,9 +64,8 @@ import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
         }, []);
 
 
-        // sort dat by id in descending order
-        const numDescending = [...dataItems].sort((a, b) => b.id - a.id);
-        console.log(numDescending);
+        // const numDescending = [...dataItems].sort((a, b) => b.id - a.id);
+        // console.log(numDescending);
        
         // const [hovered, setHovered] = React.useState(false);
 
@@ -79,6 +78,7 @@ import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
         // };
 
         const handleSubmit = () => {
+            
             const allDatas = store.getState().data.dataItems;
             const dbPromise = idb.open("laundry", 1);
             if(allDatas){
@@ -126,7 +126,7 @@ import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
                 overflow: 'auto'}}
                 sx={{ padding: 0 }}>
             
-                 {numDescending.map((data) =>
+                 {dataItems.map((data) =>
                 <SwipeToDelete sx={{ padding: '4px 16px', 
                     border: '1px solid gray', 
                     borderRadius: '5px', 
