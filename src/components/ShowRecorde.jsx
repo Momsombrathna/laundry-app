@@ -51,35 +51,21 @@ import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
     const ShowRecorde = () => {   
         const dispatch = useDispatch();
     
-        const [dataItems, setDataItems] = useState([])
-
         useEffect(() => {
             createCollectionsIndexedDB();
-
-            const storedDataItems = localStorage.getItem('dataItems');
-            if (storedDataItems) {
-                setDataItems(JSON.parse(storedDataItems));
-            }  
 
         }, []);
 
 
         // sort dat by id in descending order
-        const numDescending = [...dataItems].sort((a, b) => b.id - a.id);
-        console.log(numDescending);
-       
-        // const [hovered, setHovered] = React.useState(false);
-
-        // const handleMouseEnter = () => {
-        // setHovered(true);
-        // };
+        // const numDescending = [...dataItems].sort((a, b) => b.id - a.id);
+        // console.log(numDescending);
     
-        // const handleMouseLeave = () => {
-        // setHovered(false);
-        // };
+        const allDatas = store.getState().data.dataItems;
+        
 
         const handleSubmit = () => {
-            const allDatas = store.getState().data.dataItems;
+            
             const dbPromise = idb.open("laundry", 1);
             if(allDatas){
                 dbPromise.onsuccess = () => {
@@ -126,63 +112,36 @@ import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
                 overflow: 'auto'}}
                 sx={{ padding: 0 }}>
             
-                 {numDescending.map((data) =>
-                <SwipeToDelete sx={{ padding: '4px 16px', 
-                    border: '1px solid gray', 
-                    borderRadius: '5px', 
-                    marginTop: '2px'}}
-                    key={data.id}>
-                    {/* <ListItemText  primary={data.barcode} /> */}
-                        {/* <IconButton onClick={()=>dispatch(deleteItems(data.id))}
-                            // onMouseEnter={handleMouseEnter}
-                            // onMouseLeave={handleMouseLeave}
-                            // color={hovered ? 'primary' : 'inherit'}
-                            >
-                            
-                        </IconButton> */}
-                    <div style={{ 
-                            backgroundColor: 'white',
-                            color: 'black',
-                            height: 'full',
-                            borderColor: 'black',
-                            outline: 'none',
-                            overflow: 'auto',
-                            borderStyle: 'dotted',
-                            borderWidth: '1px',
-                    }}>   
+                {allDatas.map((data) =>
+                    <SwipeToDelete sx={{ padding: '4px 16px', 
+                        border: '1px solid gray', 
+                        borderRadius: '5px', 
+                        marginTop: '2px'}}
+                        key={data.barcode}>
 
-                        <a className="list-group-item">
-                            {/* <h4 className="list-group-item-heading">{data.dataItems}</h4> */}
-                            <p style={{
-                                fontSize: '15px',
+                        <div style={{ 
+                                backgroundColor: 'white',
                                 color: 'black',
-                            }} className="list-group-item-text">{data.barcode}</p>
-                        </a>
-                    </div> 
-                    
-                </SwipeToDelete>
+                                height: 'full',
+                                borderColor: 'black',
+                                outline: 'none',
+                                overflow: 'auto',
+                                borderStyle: 'dotted',
+                                borderWidth: '1px',
+                        }}>   
+
+                            <a className="list-group-item">
+                            
+                                <p style={{
+                                    fontSize: '15px',
+                                    color: 'black',
+                                }} className="list-group-item-text">{data.barcode}</p>
+                            </a>
+                        </div> 
+                        
+                    </SwipeToDelete>
                 )}
 
-                
-
-                {/* <ListItem sx={{ padding: '4px 16px', 
-                    border: '1px solid gray', 
-                    borderRadius: '5px', 
-                    marginTop: '2px'}}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave} 
-                    >
-                    <ListItemText primary="0757836764" />
-                    <IconButton
-                            onMouseEnter={handleMouseEnter}
-                            onMouseLeave={handleMouseLeave}
-                            color={hovered ? 'primary' : 'inherit'}
-                            >
-                            <ClearIcon />
-                    </IconButton>
-                </ListItem> */}
-               
-                
             </List>
 
 

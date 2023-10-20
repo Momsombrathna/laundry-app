@@ -1,13 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const items = localStorage.getItem("dataItems") !== null ? JSON.parse(localStorage.getItem("dataItems")) : [];
-
-const setItemFunc = (item) => {
-    localStorage.setItem("dataItems", JSON.stringify(item));
-};
-
 const initialState = {
-    dataItems: items,
+    dataItems: [],
 };
 
 const dataSlice = createSlice({
@@ -17,9 +11,9 @@ const dataSlice = createSlice({
     reducers: {
         
         addItem(state, action) {
-          const existingItem = state.dataItems.find((item) => item.action.payload.barcode === action.payload.barcode);
+          // const existingItem = state.dataItems.find((item) => item.action.payload.barcode === action.payload.barcode);
           
-          if (!existingItem) {
+          // if (!existingItem) {
             state.dataItems.push({
               barcode: action.payload.barcode,
               type: action.payload.type,
@@ -27,11 +21,8 @@ const dataSlice = createSlice({
               brand: action.payload.brand,
               note: action.payload.note,
             });
-          }
+          // }
          
-          setItemFunc(
-            state.dataItems.map((item) => item),
-          );
         },
 
         deleteItems(state, action) {  
