@@ -1,13 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const items = localStorage.getItem("dataItems") !== null ? JSON.parse(localStorage.getItem("dataItems")) : [];
-
-const setItemFunc = (item) => {
-    localStorage.setItem("dataItems", JSON.stringify(item));
-};
-
 const initialState = {
-    dataItems: items,
+    dataItems: [],
 };
 
 const dataSlice = createSlice({
@@ -29,9 +23,6 @@ const dataSlice = createSlice({
             });
           // }
          
-          setItemFunc(
-            state.dataItems.map((item) => item),
-          );
         },
 
         deleteItems(state, action) {  
