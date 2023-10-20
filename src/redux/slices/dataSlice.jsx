@@ -17,9 +17,9 @@ const dataSlice = createSlice({
     reducers: {
         
         addItem(state, action) {
-          const existingItem = state.dataItems.find((item) => item.action.payload.barcode === action.payload.barcode);
+          // const existingItem = state.dataItems.find((item) => item.action.payload.barcode === action.payload.barcode);
           
-          if (!existingItem) {
+          // if (!existingItem) {
             state.dataItems.push({
               barcode: action.payload.barcode,
               type: action.payload.type,
@@ -27,7 +27,7 @@ const dataSlice = createSlice({
               brand: action.payload.brand,
               note: action.payload.note,
             });
-          }
+          // }
          
           setItemFunc(
             state.dataItems.map((item) => item),
