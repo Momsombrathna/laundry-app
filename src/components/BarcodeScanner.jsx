@@ -16,6 +16,7 @@ const BarcodeScanner = () => {
     minLength: 3,
   });
 
+
   return (
     <div>
 
