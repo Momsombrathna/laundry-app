@@ -2,10 +2,7 @@
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
-<<<<<<< HEAD
 //import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-=======
->>>>>>> 35fef57815abc26a463a8f88e75eed3b24adbcfc
 import { Link } from 'react-router-dom';
 //import { toast } from 'react-toastify';
 
