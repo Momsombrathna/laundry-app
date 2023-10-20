@@ -1,3 +1,4 @@
+8846002481704
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -25,21 +26,24 @@ const dataSlice = createSlice({
          
         },
 
-        deleteItems(state, action) {  
-            // const id = action.payload;          
-            // const existingItem = state.dataItems.find((item) => item.id === id);
-            // if (existingItem) {
-            //   state.dataItems = state.dataItems.filter((item) => item.id !== id);
-            // }
-            
-            // setItemFunc(
-            //   state.dataItems.map((item) => item),
-            // );
+        deleteItems(state, action) { 
+           var copy = [...state.dataItems];
 
-            const existingItem = state.dataItems.find((item) => item.action.payload.barcode === action.payload.barcode);
-            if (existingItem) {
-              state.dataItems = state.dataItems.filter((item) => item.action.payload.barcode !== action.payload.barcode);
-            }
+          
+            // // const id = action.payload;          
+            // // const existingItem = state.dataItems.find((item) => item.id === id);
+            // // if (existingItem) {
+            // //   state.dataItems = state.dataItems.filter((item) => item.id !== id);
+            // // }
+            
+            // // setItemFunc(
+            // //   state.dataItems.map((item) => item),
+            // // );
+
+            // const existingItem = state.dataItems.find((item) => item.action.payload.barcode === action.payload.barcode);
+            // if (existingItem) {
+            //   state.dataItems = state.dataItems.filter((item) => item.action.payload.barcode !== action.payload.barcode);
+            // }
         }
 
       },

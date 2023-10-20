@@ -117,7 +117,11 @@ import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
                         border: '1px solid gray', 
                         borderRadius: '5px', 
                         marginTop: '2px'}}
-                        key={data.barcode}>
+                        key={data.barcode}
+                        onDelete={()=>{
+                            alert(JSON.stringify(data));
+                        }}
+                        >
 
                         <div style={{ 
                                 backgroundColor: 'white',
