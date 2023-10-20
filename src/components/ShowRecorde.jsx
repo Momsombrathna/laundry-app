@@ -11,12 +11,12 @@ import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { store } from '../redux/store/store';
 import { useDispatch} from 'react-redux';
-import { deleteItems } from '../redux/slices/dataSlice';
 import { render } from 'react-dom';
 // Import the react-swipe-to-delete-component
 import SwipeToDelete from 'react-swipe-to-delete-component';
 // Import styles of the react-swipe-to-delete-component
 import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
+import { deleteItems } from '../redux/slices/dataSlice';
 
 
     const idb =
@@ -47,8 +47,11 @@ import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
 
     }
 
+    
+
 
     const ShowRecorde = () => {   
+
         const dispatch = useDispatch();
     
         useEffect(() => {
@@ -96,6 +99,7 @@ import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
                 }
             }
         }
+
         
 
     return (
@@ -119,7 +123,7 @@ import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
                         marginTop: '2px'}}
                         key={data.barcode}
                         onDelete={()=>{
-                            alert(JSON.stringify(data));
+                            dispatch(deleteItems(data.barcode));
                         }}
                         >
 
