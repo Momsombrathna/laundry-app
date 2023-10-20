@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 //import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 //import { toast } from 'react-toastify';
-
+import { toast } from 'react-toastify';
 import List from '@mui/material/List';
 //import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
@@ -37,6 +37,7 @@ const Note = () => {
 
   const addDatas = () => {
       dispatch(addItem({barcode, type, color, brand, note,}));
+      toast.success('Data added successfully');
   };
 
     return (

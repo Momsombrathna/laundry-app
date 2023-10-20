@@ -67,9 +67,9 @@ import ShowRecorde from './ShowRecorde';
                   </button>              
               </Grid>
               <Grid item xs={4}>
-                  <button class="container">
+                  <button class="container" onClick={() => selectDropdownItem('design-dropdown', 'Shirt')}>
                     <img width="96" height="96" src="https://img.icons8.com/color/96/shirt.png" alt="shirt"
-                     onClick={() => selectDropdownItem('design-dropdown', 'Shirt')} style={{cursor:'pointer'}}/>
+                      style={{cursor:'pointer'}}/>
                      <div class="overlay">
                       <div class="text name">Shirt</div>
                     </div>

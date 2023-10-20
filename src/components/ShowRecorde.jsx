@@ -12,6 +12,11 @@ import { toast } from 'react-toastify';
 import { store } from '../redux/store/store';
 import { useDispatch} from 'react-redux';
 import { deleteItems } from '../redux/slices/dataSlice';
+import { render } from 'react-dom';
+// Import the react-swipe-to-delete-component
+import SwipeToDelete from 'react-swipe-to-delete-component';
+// Import styles of the react-swipe-to-delete-component
+import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
 
 
     const idb =
@@ -57,6 +62,11 @@ import { deleteItems } from '../redux/slices/dataSlice';
             }  
 
         }, []);
+
+
+        // sort dat by id in descending order
+        const numDescending = [...dataItems].sort((a, b) => b.id - a.id);
+        console.log(numDescending);
        
         // const [hovered, setHovered] = React.useState(false);
 
@@ -91,6 +101,7 @@ import { deleteItems } from '../redux/slices/dataSlice';
                     items.onsuccess = () => {
                         tx.oncomplete = function () {
                             window.location.reload();
+                            localStorage.removeItem('dataItems');
                             toast.success('Items added successfully');
                             db.close();
                         };
@@ -115,25 +126,44 @@ import { deleteItems } from '../redux/slices/dataSlice';
                 overflow: 'auto'}}
                 sx={{ padding: 0 }}>
             
-                 {dataItems.map((data) =>
-                <ListItem sx={{ padding: '4px 16px', 
+                 {numDescending.map((data) =>
+                <SwipeToDelete sx={{ padding: '4px 16px', 
                     border: '1px solid gray', 
                     borderRadius: '5px', 
                     marginTop: '2px'}}
-                    // onMouseEnter={handleMouseEnter}
-                    // onMouseLeave={handleMouseLeave} 
                     key={data.id}>
-                    <ListItemText  primary={data.barcode} />
-                        <IconButton onClick={()=>dispatch(deleteItems(data.id))}
+                    {/* <ListItemText  primary={data.barcode} /> */}
+                        {/* <IconButton onClick={()=>dispatch(deleteItems(data.id))}
                             // onMouseEnter={handleMouseEnter}
                             // onMouseLeave={handleMouseLeave}
                             // color={hovered ? 'primary' : 'inherit'}
                             >
-                            <ClearIcon />
-                        </IconButton>
+                            
+                        </IconButton> */}
+                    <div style={{ 
+                            backgroundColor: 'white',
+                            color: 'black',
+                            height: 'full',
+                            borderColor: 'black',
+                            outline: 'none',
+                            overflow: 'auto',
+                            borderStyle: 'dotted',
+                            borderWidth: '1px',
+                    }}>   
+
+                        <a className="list-group-item">
+                            {/* <h4 className="list-group-item-heading">{data.dataItems}</h4> */}
+                            <p style={{
+                                fontSize: '15px',
+                                color: 'black',
+                            }} className="list-group-item-text">{data.barcode}</p>
+                        </a>
+                    </div> 
                     
-                </ListItem>
+                </SwipeToDelete>
                 )}
+
+                
 
                 {/* <ListItem sx={{ padding: '4px 16px', 
                     border: '1px solid gray', 
