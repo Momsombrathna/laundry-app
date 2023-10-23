@@ -91,8 +91,7 @@ import { deleteItems } from '../redux/slices/dataSlice';
                     items.onsuccess = () => {
                         tx.oncomplete = function () {
                             window.location.reload();
-                            localStorage.removeItem('dataItems');
-                            toast.success('Items added successfully');
+                            // toast.success('Items added successfully');
                             db.close();
                         };
                     }
@@ -108,7 +107,7 @@ import { deleteItems } from '../redux/slices/dataSlice';
 
 
            <List style={{backgroundColor: 'white', 
-                color: 'black', height: '300px', width: '230px',
+                color: 'black', height: '400px', width: '230px',
                 padding: '5px',
                 margin: 'auto',
                 border: 'none',
@@ -117,44 +116,51 @@ import { deleteItems } from '../redux/slices/dataSlice';
                 overflow: 'auto'}}
                 sx={{ padding: 0 }}>
             
-                {allDatas.map((data) =>
-                    <SwipeToDelete sx={{ padding: '4px 16px', 
-                        border: '1px solid gray', 
-                        borderRadius: '5px', 
-                        marginTop: '2px'}}
-                        key={data.barcode}
-                        onDelete={()=>{
-                            dispatch(deleteItems(data.barcode));
-                        }}
-                        >
-
-                        <div  style={{ 
-                                backgroundColor: 'white',
-                                color: 'black',
-                                height: 'full',
-                                borderColor: 'black',
-                                outline: 'none',
-                                overflow: 'auto',
-                                borderStyle: 'dotted',
-                                borderWidth: '1px',
-                        }}>   
-
-                            <a className="list-group-item">
-                                <p style={{
-                                    fontSize: '15px',
-                                    color: 'black',
-                                }} className="list-group-item-text">{data.barcode}</p>
-                            </a>
-                        </div> 
-                        
-                    </SwipeToDelete>
-                )}
+            {allDatas.length === 0 && (
+            <div style={{ border: "none", borderRadius: "5px", padding: "4px 16px" }}>
+                <p>No barcode found.</p>
+            </div>
+            )}
+            {allDatas.map((data) => (
+            <SwipeToDelete
+                sx={{
+                padding: "4px 16px",
+                border: "1px solid gray",
+                borderRadius: "5px",
+                marginTop: "2px",
+                }}
+                key={data.barcode}
+                onDelete={() => dispatch(deleteItems(data.barcode))}
+            >
+                <div
+                style={{
+                    backgroundColor: "white",
+                    color: "black",
+                    height: "full",
+                    borderColor: "black",
+                    outline: "none",
+                    overflow: "auto",
+                    borderStyle: "dotted",
+                    borderWidth: "1px",
+                }}
+                >
+                <a className="list-group-item">
+                    <p
+                    style={{ fontSize: "15px", color: "black" }}
+                    className="list-group-item-text"
+                    >
+                    {data.barcode}
+                    </p>
+                </a>
+                </div>
+            </SwipeToDelete>
+            ))}
 
             </List>
 
 
            <br />           
-           <Button variant="contained" onClick={handleSubmit}>Submit</Button>
+           <Button variant="contained" disabled={allDatas.length === 0} onClick={handleSubmit}>Submit</Button>
 
         </>
     );

@@ -40,7 +40,7 @@ const Note = () => {
 
   const addDatas = () => {
       dispatch(addItem({barcode, type, color, brand, note,}));
-      toast.success('Data added successfully');
+      
   };
 
     return (
