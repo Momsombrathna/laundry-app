@@ -19,6 +19,7 @@ import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
 import { deleteItems } from '../redux/slices/dataSlice';
 
 
+
     const idb =
     window.indexedDB ||
     window.mozIndexedDB ||

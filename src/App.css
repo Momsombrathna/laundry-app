@@ -284,9 +284,9 @@ body{
   }
 
   /* Style the checkbox label */
-  input[type="checkbox"] + label {
+  /* input[type="checkbox"] + label {
 
-  }
+  } */
 
   /* Style the checked checkbox label */
   input[type="checkbox"]:checked + label {
@@ -331,6 +331,16 @@ body{
     float: left;
     font-weight: bold;
     
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  /* *************button program custom*************** */
+  .btn-program {
+    background-color: 'white';
+    border: none
   }
 
 

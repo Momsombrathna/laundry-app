@@ -10,8 +10,6 @@ const TakePhoto = () => {
     return (
       <>
         <h2>Take Photo</h2>
-
-  
             <br /><br /><br />
   
   
