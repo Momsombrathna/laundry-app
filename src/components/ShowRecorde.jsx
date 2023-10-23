@@ -128,7 +128,7 @@ import { deleteItems } from '../redux/slices/dataSlice';
                         }}
                         >
 
-                        <div style={{ 
+                        <div  style={{ 
                                 backgroundColor: 'white',
                                 color: 'black',
                                 height: 'full',
@@ -140,7 +140,6 @@ import { deleteItems } from '../redux/slices/dataSlice';
                         }}>   
 
                             <a className="list-group-item">
-                            
                                 <p style={{
                                     fontSize: '15px',
                                     color: 'black',
