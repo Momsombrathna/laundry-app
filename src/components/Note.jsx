@@ -15,6 +15,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setNote } from '../redux/slices/appSlice';
 import ShowRecorde from './ShowRecorde';
 import { addItem } from '../redux/slices/dataSlice';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 
 const drawerWidth = 240;
@@ -68,11 +71,30 @@ const Note = () => {
             </Box>
           </Drawer>
 
-          <h2>Note</h2>
+         
   
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-            <textarea name="" style={{backgroundColor: 'white', color: 'black', width: '500px'}} id="" cols="30" rows="10"
-                onChange={(e) =>dispatch(setNote(e.target.value))}>{note}</textarea>
+            
+            {/* <textarea name="" style={{backgroundColor: 'white', color: 'black', width: '500px'}} id="" cols="30" rows="10"
+                onChange={(e) =>dispatch(setNote(e.target.value))}>{note}</textarea> */}
+
+          <p class="program-title">Laundy Note</p>
+          
+          <section>
+            <div class="laundry-note">
+            <FormGroup>
+              <FormControlLabel 
+                control={<Checkbox />} 
+                label="Ripped" />
+              <FormControlLabel 
+                control={<Checkbox />} 
+                label="Damage" />
+              <FormControlLabel  
+                control={<Checkbox />} 
+                label="Stained" />
+            </FormGroup>
+            </div>
+          </section>
 
   
             <br /><br /><br />
